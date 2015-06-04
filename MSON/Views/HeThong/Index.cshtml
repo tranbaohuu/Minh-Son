@@ -1,0 +1,82 @@
+﻿@model IEnumerable<MSON.sanpham>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sản phẩm</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TEN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MOTA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NGAYNHAP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.loaihang.TENLOAI)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TEN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MOTA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYNHAP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.loaihang.TENLOAI)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>*@
+
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <div>
+
+                    <p class="text-center">
+                        <a href="#">@Html.DisplayFor(itemModel=> item.TEN)</a>
+                    </p>
+                </div>
+                <a href="#">
+                    <img class="" data-original="#" width="320" height="240" alt="Fancy Bootstrap Checkboxes" src="http://bootsnipp.com/img/screenshots/d3bdab6a3106aa035221361cc70bfc5752d6974c.png" style="display: block;">
+                </a>
+                <div class="caption">
+                    <p>
+                        <a href="http://bootsnipp.com/snippets/featured/fancy-bootstrap-checkboxes" class="btn btn-primary btn-lg btn-block">Xem</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>
