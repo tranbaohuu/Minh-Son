@@ -25,6 +25,36 @@ namespace MSON.Controllers
         }
 
 
+
+        public ActionResult Create_SanPham()
+        {
+
+            //var model = ett.sanphams.Single(s => s.ID == id);
+
+
+            //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
+            ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI");
+
+
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult Create_SanPham(sanpham sp)
+        {
+
+            if (ModelState.IsValid)
+            {
+                ett.Entry(sp).State = EntityState.Added;
+                ett.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(sp);
+
+        }
+
         public ActionResult Edit_SanPham(int id)
         {
 
@@ -38,7 +68,7 @@ namespace MSON.Controllers
             return View(model);
 
         }
-
+        
 
 
         [HttpPost]
@@ -56,8 +86,67 @@ namespace MSON.Controllers
             }
 
             return View(sp);
+            
 
         }
+
+
+
+
+
+
+        public ActionResult Delete_SanPham(int id)
+        {
+
+
+            var model = ett.sanphams.Single(s => s.ID == id);
+
+
+            //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
+            //ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI", model.ID_LOAIHANG);
+
+
+            return View(model);
+
+
+
+        }
+
+        [HttpPost]
+        public ActionResult Delete_SanPham(sanpham sp)
+        {
+
+
+            if (ModelState.IsValid)
+            {
+                ett.Entry(sp).State = EntityState.Deleted;
+                ett.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(sp);
+
+
+        }
+
+
+
+        public ActionResult Detail_SanPham(int id)
+        {
+
+            var model = ett.sanphams.Single(s => s.ID == id);
+
+
+            //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
+            ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI", model.ID_LOAIHANG);
+
+
+            return View(model);
+
+
+
+        }
+
 
     }
 }

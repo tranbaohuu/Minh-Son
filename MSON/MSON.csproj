@@ -307,6 +307,9 @@
     <Content Include="Views\Shared\_Layout_Admin.cshtml" />
     <Content Include="Views\HeThong\_ViewStart.cshtml" />
     <Content Include="Views\HeThong\Edit_SanPham.cshtml" />
+    <Content Include="Views\HeThong\Delete_SanPham.cshtml" />
+    <Content Include="Views\HeThong\Detail_SanPham.cshtml" />
+    <Content Include="Views\HeThong\Create_SanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

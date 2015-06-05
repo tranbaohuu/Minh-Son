@@ -8,7 +8,7 @@
 <h2>Sản phẩm</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create","", new { @class = "btn btn-success" })
+    @Html.ActionLink("Create New", "Create_SanPham", "", new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.loaihang.TENLOAI)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary" }) 
-                @Html.ActionLink("Edit", "Edit_SanPham", new { id = item.ID }, new { @class = "btn btn-warning" }) 
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Chi tiết", "Detail_SanPham", new { id = item.ID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Sửa", "Edit_SanPham", new { id = item.ID }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Xóa", "Delete_SanPham", new { id = item.ID }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }
