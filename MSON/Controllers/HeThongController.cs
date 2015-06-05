@@ -68,7 +68,7 @@ namespace MSON.Controllers
             return View(model);
 
         }
-        
+
 
 
         [HttpPost]
@@ -86,7 +86,7 @@ namespace MSON.Controllers
             }
 
             return View(sp);
-            
+
 
         }
 

@@ -8,7 +8,7 @@
 <h2>Sản phẩm</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create_SanPham", "", new { @class = "btn btn-success" })
+    @Html.ActionLink("Thêm", "Create_SanPham", "", new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -37,7 +37,13 @@
                 @Html.DisplayFor(modelItem => item.MOTA)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NGAYNHAP)
+                @* Đổi ngày ra dd-mm-yy *@
+
+                @{
+        string ngayThangNam = item.NGAYNHAP.Value.ToString("dd/MM/yyyy");
+                }
+
+                @Html.DisplayFor(modelItem => ngayThangNam)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.loaihang.TENLOAI)
