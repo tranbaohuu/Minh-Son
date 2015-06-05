@@ -8,11 +8,18 @@ namespace MSON.Controllers
 {
     public class NguoiDungController : Controller
     {
+
+        private minhsondbEntities ett = new minhsondbEntities();
         // GET: NguoiDung
         public ActionResult Index()
         {
-            return View();
+
+            var model = ett.sanphams.Select(s => s);
+
+
+            return View(model);
         }
+
 
 
 

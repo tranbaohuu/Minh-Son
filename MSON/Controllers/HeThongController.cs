@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -24,31 +25,38 @@ namespace MSON.Controllers
         }
 
 
-        public ActionResult SanPham()
+        public ActionResult Edit_SanPham(int id)
         {
-            return View();
+
+            var model = ett.sanphams.Single(s => s.ID == id);
+
+
+            //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
+            ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI", model.ID_LOAIHANG);
+
+
+            return View(model);
+
         }
 
 
-        public ActionResult LayDanhSach()
+
+        [HttpPost]
+        public ActionResult Edit_SanPham(sanpham sp)
         {
 
-            //var model = ett.sanphams.Select(s => s);
-
-
-            var model = from sp in ett.sanphams
-
-                        select new KieuCuaToiModels()
-                        {
-                            TenHang = sp.TEN,
-                            NgayNhap = sp.NGAYNHAP ?? default(DateTime)
-
-
-                        };
 
 
 
-            return View(model.ToList());
+            if (ModelState.IsValid)
+            {
+                ett.Entry(sp).State = EntityState.Modified;
+                ett.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(sp);
+
         }
 
     }

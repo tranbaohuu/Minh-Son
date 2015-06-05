@@ -205,6 +205,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\KieuCuaToiModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SanPhamModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sanpham.cs">
       <DependentUpon>MinhSonEnt.tt</DependentUpon>
@@ -303,6 +304,9 @@
     <Content Include="Views\HeThong\Index.cshtml" />
     <Content Include="Views\NguoiDung\Index.cshtml" />
     <Content Include="Views\HeThong\LayDanhSach.cshtml" />
+    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
+    <Content Include="Views\HeThong\_ViewStart.cshtml" />
+    <Content Include="Views\HeThong\Edit_SanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
