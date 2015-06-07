@@ -57,6 +57,19 @@ namespace MSON.Controllers
         }
 
 
+        public ActionResult VeChungToi()
+        {
+
+            //var model = ett.sanphams.Where(w => w.ID_LOAIHANG == id).Select(s => s);
+
+            var tuple = new Tuple<List<sanpham>, List<loaihang>>(new List<sanpham>(), ett.loaihangs.Select(s => s).ToList());
+
+
+            return View(tuple);
+
+        }
+
+
 
     }
 }

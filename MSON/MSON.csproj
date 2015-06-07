@@ -365,6 +365,7 @@
     <Content Include="Views\HeThong\Create_SanPham.cshtml" />
     <Content Include="Views\NguoiDung\Detail_SanPham.cshtml" />
     <Content Include="Views\NguoiDung\SanPham.cshtml" />
+    <Content Include="Views\NguoiDung\VeChungToi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
