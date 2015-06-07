@@ -250,6 +250,20 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MinhSonEnt.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="IMAGES\1.jpeg" />
+    <Content Include="IMAGES\10.jpg" />
+    <Content Include="IMAGES\11.jpg" />
+    <Content Include="IMAGES\12.jpeg" />
+    <Content Include="IMAGES\13.jpeg" />
+    <Content Include="IMAGES\14.jpeg" />
+    <Content Include="IMAGES\2.jpeg" />
+    <Content Include="IMAGES\3.jpg" />
+    <Content Include="IMAGES\4.jpeg" />
+    <Content Include="IMAGES\5.jpeg" />
+    <Content Include="IMAGES\6.jpeg" />
+    <Content Include="IMAGES\7.jpg" />
+    <Content Include="IMAGES\8.jpg" />
+    <Content Include="IMAGES\9.jpg" />
     <Content Include="MinhSonEnt.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MinhSonEnt.edmx</DependentUpon>
@@ -328,6 +342,9 @@
     <Content Include="Views\HeThong\Delete_SanPham.cshtml" />
     <Content Include="Views\HeThong\Detail_SanPham.cshtml" />
     <Content Include="Views\HeThong\Create_SanPham.cshtml" />
+    <Content Include="Views\NguoiDung\Detail_SanPham.cshtml" />
+    <Content Include="Views\Shared\PartialViewMenuDong.cshtml" />
+    <Content Include="Views\NguoiDung\SanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

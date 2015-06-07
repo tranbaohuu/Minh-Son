@@ -19,6 +19,7 @@ namespace MSON
         public string MOTA { get; set; }
         public Nullable<System.DateTime> NGAYNHAP { get; set; }
         public Nullable<int> ID_LOAIHANG { get; set; }
+        public string IMG_URL { get; set; }
     
         public virtual loaihang loaihang { get; set; }
     }

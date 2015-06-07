@@ -20,6 +20,7 @@
     <Property Name="NGAYNHAP" Type="DateTime" Precision="0" />
     <Property Name="ID_LOAIHANG" Type="Int32" />
     <NavigationProperty Name="loaihang" Relationship="Self.FK_sanpham_loaihang" FromRole="sanpham" ToRole="loaihang" />
+    <Property Name="IMG_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>

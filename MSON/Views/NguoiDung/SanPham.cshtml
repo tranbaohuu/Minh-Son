@@ -1,0 +1,38 @@
+﻿@*@model IEnumerable<MSON.sanpham>*@
+@model Tuple<List<sanpham>, List<loaihang>>
+@{
+    ViewBag.Title = "SanPham";
+}
+
+<h2>SanPham</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<div class="row">
+
+    @foreach (var item in Model.Item1)
+    {
+
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <div>
+
+                    <p class="text-center">
+                        @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
+                    </p>
+                </div>
+
+                <img class="" data-original="#" width="320" height="240" alt="Không có hình" src="@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block;">
+                <div class="caption">
+                    <p>
+
+                        @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>

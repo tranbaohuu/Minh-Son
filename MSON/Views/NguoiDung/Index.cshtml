@@ -1,5 +1,5 @@
-﻿@model IEnumerable<MSON.sanpham>
-
+﻿@*@model IEnumerable<MSON.sanpham>*@
+@model Tuple<List<sanpham>, List<loaihang>>
 
 @{
     ViewBag.Title = "Index";
@@ -53,9 +53,9 @@
     </table>*@
 
 
-<div class="row">
+ <div class="row">
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.Item1)
     {
 
         <div class="col-md-4">
@@ -63,15 +63,15 @@
                 <div>
 
                     <p class="text-center">
-                        <a href="#">@Html.DisplayFor(itemModel => item.TEN)</a>
+                        @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
                     </p>
                 </div>
-                <a href="#">
-                    <img class="" data-original="#" width="320" height="240" alt="Fancy Bootstrap Checkboxes" src="http://bootsnipp.com/img/screenshots/d3bdab6a3106aa035221361cc70bfc5752d6974c.png" style="display: block;">
-                </a>
+
+                    <img class="" data-original="#" width="320" height="240" alt="Không có hình" src="@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block;">
                 <div class="caption">
                     <p>
-                        <a href="http://bootsnipp.com/snippets/featured/fancy-bootstrap-checkboxes" class="btn btn-primary btn-lg btn-block">Xem</a>
+
+                        @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new {@class = "btn btn-primary btn-lg btn-block"})
                     </p>
                 </div>
             </div>

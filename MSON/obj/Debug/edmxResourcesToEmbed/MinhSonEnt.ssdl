@@ -18,6 +18,7 @@
     <Property Name="MOTA" Type="nvarchar(max)" />
     <Property Name="NGAYNHAP" Type="date" />
     <Property Name="ID_LOAIHANG" Type="int" />
+    <Property Name="IMG_URL" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

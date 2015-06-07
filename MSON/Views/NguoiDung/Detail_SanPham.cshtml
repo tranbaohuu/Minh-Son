@@ -1,0 +1,52 @@
+﻿@model MSON.sanpham
+
+@{
+    ViewBag.Title = "Detail_SanPham";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Tên máy:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN)
+        </dd>
+
+        <dt>
+           Mô tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOTA)
+        </dd>
+
+        <dt>
+       Tên loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loaihang.TENLOAI)
+        </dd>
+        <dt>
+           Hình:
+        </dt>
+
+        <dd>
+
+
+
+            <img src="@Html.DisplayFor(model => model.IMG_URL)" />
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Quay lại", "Index", "", new { @class = "btn btn-default" })
+</p>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="minhsondbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="minhsondbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="loaihang">
           <Key>
             <PropertyRef Name="ID" />
@@ -23,6 +23,7 @@
           <Property Name="MOTA" Type="nvarchar(max)" />
           <Property Name="NGAYNHAP" Type="date" />
           <Property Name="ID_LOAIHANG" Type="int" />
+          <Property Name="IMG_URL" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -55,8 +56,7 @@
             <End Role="sanpham" EntitySet="sanpham" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="minhsondbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -80,6 +80,7 @@
           <Property Name="NGAYNHAP" Type="DateTime" Precision="0" />
           <Property Name="ID_LOAIHANG" Type="Int32" />
           <NavigationProperty Name="loaihang" Relationship="Self.FK_sanpham_loaihang" FromRole="sanpham" ToRole="loaihang" />
+          <Property Name="IMG_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -131,6 +132,7 @@
           <EntitySetMapping Name="sanphams">
             <EntityTypeMapping TypeName="minhsondbModel.sanpham">
               <MappingFragment StoreEntitySet="sanpham">
+                <ScalarProperty Name="IMG_URL" ColumnName="IMG_URL" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TEN" ColumnName="TEN" />
                 <ScalarProperty Name="MOTA" ColumnName="MOTA" />
