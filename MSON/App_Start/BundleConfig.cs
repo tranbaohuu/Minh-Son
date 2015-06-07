@@ -26,11 +26,19 @@ namespace MSON
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/jquery-ui.css",
+                "~/Content/flexslider.css",
+                      "~/Content/font-awesome.css",
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/flexslider").Include(
+                     "~/Scripts/jquery.flexslider.js"));
+
+
+            bundles.Add(new ScriptBundle("~/bundles/unslider").Include(
+                     "~/Scripts/unslider.js"));
 
 
         }

@@ -220,6 +220,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\flexslider.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\bg_play_pause.png" />
     <Content Include="Content\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="Content\images\ui-bg_flat_10_000000_40x100.png" />
@@ -237,6 +241,8 @@
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\flexslider-icon.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -264,6 +270,9 @@
     <Content Include="IMAGES\7.jpg" />
     <Content Include="IMAGES\8.jpg" />
     <Content Include="IMAGES\9.jpg" />
+    <Content Include="IMAGES\k1.jpg" />
+    <Content Include="IMAGES\k2.jpg" />
+    <Content Include="IMAGES\k3.jpg" />
     <Content Include="MinhSonEnt.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MinhSonEnt.edmx</DependentUpon>
@@ -277,6 +286,14 @@
       <DependentUpon>MinhSonEnt.edmx</DependentUpon>
       <LastGenOutput>MinhSonEnt.cs</LastGenOutput>
     </Content>
+    <Content Include="fonts\flexslider-icon.eot" />
+    <Content Include="fonts\flexslider-icon.ttf" />
+    <Content Include="fonts\flexslider-icon.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Icon.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -287,6 +304,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.flexslider-min.js" />
+    <Content Include="Scripts\jquery.flexslider.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -297,6 +316,8 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\unslider.js" />
+    <Content Include="Scripts\unslider.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -343,7 +364,6 @@
     <Content Include="Views\HeThong\Detail_SanPham.cshtml" />
     <Content Include="Views\HeThong\Create_SanPham.cshtml" />
     <Content Include="Views\NguoiDung\Detail_SanPham.cshtml" />
-    <Content Include="Views\Shared\PartialViewMenuDong.cshtml" />
     <Content Include="Views\NguoiDung\SanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>

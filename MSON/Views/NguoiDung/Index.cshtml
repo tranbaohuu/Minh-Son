@@ -53,29 +53,106 @@
     </table>*@
 
 
- <div class="row">
+<div class="flexslider">
+    <ul class="slides">
+        <li>
+            <img src="../../IMAGES/k1.jpg" />
+        </li>
+        <li>
+            <img src="../../IMAGES/k2.jpg" />
+        </li>
+        <li>
+            <img src="../../IMAGES/k3.jpg" />
+        </li>
+
+    </ul>
+</div>
+
+
+@*<div class="banner">
+        <ul>
+            <li>
+                <img src="../../IMAGES/1.jpeg"/>
+            </li>
+            <li>
+                <img src="../../IMAGES/2.jpeg"/>
+            </li>
+            <li>
+                <img src="../../IMAGES/3.jpeg"/>
+            </li>
+        </ul>
+    </div>*@
+
+@*<a href="#" class="unslider-arrow prev">Previous slide</a>
+    <a href="#" class="unslider-arrow next"><i class="fa fa-chevron-right"></i></a>*@
+
+<div class="page-header header-mathang">
+    <h1>
+        Mẫu khuôn
+        <small><a href="#" class="btn btn-success">Xem thêm</a></small>
+    </h1>
+</div>
+<div class="row">
 
     @foreach (var item in Model.Item1)
     {
+        if (item.ID_LOAIHANG == 1)
+        {
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <div>
 
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <div>
-
-                    <p class="text-center">
-                        @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
-                    </p>
-                </div>
+                        <p class="text-center">
+                            @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new {Id = item.ID}, null)
+                        </p>
+                    </div>
 
                     <img class="" data-original="#" width="320" height="240" alt="Không có hình" src="@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block;">
-                <div class="caption">
-                    <p>
+                    <div class="caption">
+                        <p>
 
-                        @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new {@class = "btn btn-primary btn-lg btn-block"})
-                    </p>
+                            @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new {Id = item.ID}, new {@class = "btn btn-primary btn-lg btn-block"})
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
+    }
+
+
+</div>
+
+<div class="page-header header-mathang">
+    <h1>
+        Mẫu máy
+        <small><a href="#" class="btn btn-success">Xem thêm</a></small>
+    </h1>
+</div>
+<div class="row">
+
+    @foreach (var item in Model.Item1)
+    {
+        if (item.ID_LOAIHANG == 2)
+        {
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <div>
+
+                        <p class="text-center">
+                            @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
+                        </p>
+                    </div>
+
+                    <img class="" data-original="#" width="320" height="240" alt="Không có hình" src="@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block;">
+                    <div class="caption">
+                        <p>
+
+                            @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
     }
 
 
