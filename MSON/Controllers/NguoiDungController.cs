@@ -53,7 +53,10 @@ namespace MSON.Controllers
             ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI", model.ID_LOAIHANG);
 
 
-            return View(model);
+            var tuple = new Tuple<sanpham, List<loaihang>>(model, ett.loaihangs.Select(s => s).ToList());
+
+
+            return View(tuple);
 
 
 

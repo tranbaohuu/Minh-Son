@@ -89,7 +89,7 @@
 <div class="page-header header-mathang">
     <h1>
         Mẫu khuôn
-        <small><a href="#" class="btn btn-success">Xem thêm</a></small>
+        <small>@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 1 }, new { @class = "btn btn-success" })</small>
     </h1>
 </div>
 <div class="row">
@@ -103,7 +103,7 @@
                     <div>
 
                         <p class="text-center">
-                            @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new {Id = item.ID}, null)
+                            @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
                         </p>
                     </div>
 
@@ -111,7 +111,7 @@
                     <div class="caption">
                         <p>
 
-                            @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new {Id = item.ID}, new {@class = "btn btn-primary btn-lg btn-block"})
+                            @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })
                         </p>
                     </div>
                 </div>
@@ -125,7 +125,8 @@
 <div class="page-header header-mathang">
     <h1>
         Mẫu máy
-        <small><a href="#" class="btn btn-success">Xem thêm</a></small>
+        <small>@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 2 }, new { @class = "btn btn-success" })</small>
+
     </h1>
 </div>
 <div class="row">
