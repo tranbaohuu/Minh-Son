@@ -16,8 +16,26 @@ namespace MSON.Controllers
         {
 
 
+            var listLoaiHang = ett.loaihangs.Select(l => l).ToList();
 
-            var tuple = new Tuple<List<sanpham>, List<loaihang>>(ett.sanphams.Select(s => s).ToList(), ett.loaihangs.Select(s => s).ToList());
+
+            List<sanpham> dsSanPham = new List<sanpham>();
+
+            foreach (var lh in listLoaiHang)
+            {
+
+                var dsSanPhamLayLen = ett.sanphams.Where(w => w.ID_LOAIHANG == lh.ID).Select(s => s).Take(4).ToList();
+
+                dsSanPham.AddRange(dsSanPhamLayLen);
+
+
+            }
+
+
+
+
+            //var tuple = new Tuple<List<sanpham>, List<loaihang>>(ett.sanphams.Select(s => s).ToList(), ett.loaihangs.Select(s => s).ToList());
+            var tuple = new Tuple<List<sanpham>, List<loaihang>>(dsSanPham, ett.loaihangs.Select(s => s).ToList());
             return View(tuple);
 
 
