@@ -1,5 +1,6 @@
-﻿@*@model IEnumerable<MSON.sanpham>*@
-@model Tuple<List<sanpham>, List<loaihang>>
+﻿@model IEnumerable<MSON.sanpham>
+@*@model List<sanpham>*@
+@*@model Tuple<List<sanpham>, List<loaihang>>*@
 
 @{
     ViewBag.Title = "Index";
@@ -94,7 +95,7 @@
 </div>
 <div class="row">
 
-    @foreach (var item in Model.Item1)
+    @foreach (var item in Model)
     {
         if (item.ID_LOAIHANG == 1)
         {
@@ -131,7 +132,7 @@
 </div>
 <div class="row">
 
-    @foreach (var item in Model.Item1)
+    @foreach (var item in Model)
     {
         if (item.ID_LOAIHANG == 2)
         {

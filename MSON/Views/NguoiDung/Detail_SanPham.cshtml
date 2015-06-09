@@ -1,5 +1,5 @@
-﻿
-@model Tuple<sanpham, List<loaihang>>
+﻿@model MSON.sanpham
+@*@model Tuple<sanpham, List<loaihang>>*@
 
 @{
     ViewBag.Title = "Detail_SanPham";
@@ -16,7 +16,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Item1.TEN)
+            @Html.DisplayFor(model => model.TEN)
         </dd>
 
         <dt>
@@ -24,7 +24,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Item1.MOTA)
+            @Html.DisplayFor(model => model.MOTA)
         </dd>
 
         <dt>
@@ -32,7 +32,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Item1.loaihang.TENLOAI)
+            @Html.DisplayFor(model => model.loaihang.TENLOAI)
         </dd>
         <dt>
            Hình:
@@ -42,7 +42,7 @@
 
 
 
-            <img src="@Html.DisplayFor(model => model.Item1.IMG_URL)" />
+            <img src="@Html.DisplayFor(model => model.IMG_URL)" />
 
         </dd>
 

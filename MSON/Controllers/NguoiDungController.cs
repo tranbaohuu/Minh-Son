@@ -34,9 +34,8 @@ namespace MSON.Controllers
 
 
 
-            //var tuple = new Tuple<List<sanpham>, List<loaihang>>(ett.sanphams.Select(s => s).ToList(), ett.loaihangs.Select(s => s).ToList());
-            var tuple = new Tuple<List<sanpham>, List<loaihang>>(dsSanPham, ett.loaihangs.Select(s => s).ToList());
-            return View(tuple);
+            //var tuple = new Tuple<List<sanpham>, List<loaihang>>(dsSanPham, ett.loaihangs.Select(s => s).ToList());
+            return View(dsSanPham);
 
 
 
@@ -53,10 +52,10 @@ namespace MSON.Controllers
             ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI", model.ID_LOAIHANG);
 
 
-            var tuple = new Tuple<sanpham, List<loaihang>>(model, ett.loaihangs.Select(s => s).ToList());
+            //var tuple = new Tuple<sanpham, List<loaihang>>(model, ett.loaihangs.Select(s => s).ToList());
 
 
-            return View(tuple);
+            return View(model);
 
 
 
@@ -64,16 +63,16 @@ namespace MSON.Controllers
 
 
 
-        public ActionResult SanPham(int id)
+        public ActionResult SanPham()
         {
 
-            //var model = ett.sanphams.Where(w => w.ID_LOAIHANG == id).Select(s => s);
+            var model = ett.sanphams.Select(s => s);
 
 
 
 
-            var tuple = new Tuple<List<sanpham>, List<loaihang>>(ett.sanphams.Where(w => w.ID_LOAIHANG == id).Select(s => s).ToList(), ett.loaihangs.Select(s => s).ToList());
-            return View(tuple);
+            //var tuple = new Tuple<List<sanpham>, List<loaihang>>(ett.sanphams.Where(w => w.ID_LOAIHANG == id).Select(s => s).ToList(), ett.loaihangs.Select(s => s).ToList());
+            return View(model);
 
         }
 

@@ -1,5 +1,5 @@
-﻿@*@model IEnumerable<MSON.sanpham>*@
-@model Tuple<List<sanpham>, List<loaihang>>
+﻿@model IEnumerable<MSON.sanpham>
+@*@model Tuple<List<sanpham>, List<loaihang>>*@
 @{
     ViewBag.Title = "SanPham";
 }
@@ -11,7 +11,7 @@
 </p>
 <div class="row">
 
-    @foreach (var item in Model.Item1)
+    @foreach (var item in Model)
     {
 
         <div class="col-md-4">
