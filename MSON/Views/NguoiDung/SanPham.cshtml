@@ -1,14 +1,21 @@
-﻿@model IEnumerable<MSON.sanpham>
+﻿@model IPagedList<MSON.sanpham>
 @*@model Tuple<List<sanpham>, List<loaihang>>*@
 @{
-    ViewBag.Title = "SanPham";
+    ViewBag.Title = "Sản phẩm";
 }
 
-<h2>SanPham</h2>
 
-<p>
-    @*@Html.ActionLink("Create New", "Create")*@
-</p>
+<div class="page-header header-mathang">
+    <h1>
+        Sản phẩm
+    </h1>
+</div>
+
+<div class="pagedList">
+    @Html.PagedListPager(Model, page => @Url.Action("SanPham", new { page }), new PagedListRenderOptions() { LinkToFirstPageFormat = "Trang đầu", LinkToLastPageFormat = "Trang cuối", LinkToNextPageFormat = "Sau", LinkToPreviousPageFormat = "Trước" })
+</div>
+
+
 <div class="row">
 
     @foreach (var item in Model)

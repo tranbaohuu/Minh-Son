@@ -1,0 +1,42 @@
+﻿@model MSON.sanpham
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên máy:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN)
+        </dd>
+
+        <dt>
+            Mô tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOTA)
+        </dd>
+
+        <dt>
+            Tên loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loaihang.TENLOAI)
+        </dd>
+        <dt>
+            Hình:
+        </dt>
+
+        <dd>
+
+
+
+            <img class="img-thumbnail" src="@Html.DisplayFor(model => model.IMG_URL)" />
+
+        </dd>
+
+    </dl>
+</div>

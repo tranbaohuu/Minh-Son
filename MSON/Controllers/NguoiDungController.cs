@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace MSON.Controllers
 {
@@ -51,7 +52,6 @@ namespace MSON.Controllers
             //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
             ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI", model.ID_LOAIHANG);
 
-
             //var tuple = new Tuple<sanpham, List<loaihang>>(model, ett.loaihangs.Select(s => s).ToList());
 
 
@@ -63,10 +63,10 @@ namespace MSON.Controllers
 
 
 
-        public ActionResult SanPham()
+        public ActionResult SanPham(int page = 1)
         {
 
-            var model = ett.sanphams.Select(s => s);
+            var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.NGAYNHAP).ToPagedList(page, 12);
 
 
 

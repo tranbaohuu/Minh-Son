@@ -1,7 +1,7 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-    background-color: rgb(245,245,245);
+    /*padding-top: 50px;*/
+    /*padding-bottom: 20px;*/
+    background-color: #EFEFEF;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -44,8 +44,14 @@ textarea {
 
 
 .header-mathang {
-    color: #E87911;
+    color: #333333;
 }
+
+.header-mathang h1 small a{
+    margin-top: -12px;
+}
+
+
 
 
 /*Phần CSS của TimeLine*/

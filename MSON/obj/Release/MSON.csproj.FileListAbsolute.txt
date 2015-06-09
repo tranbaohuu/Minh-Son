@@ -52,3 +52,8 @@ C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\Syst
 C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\System.Web.Optimization.xml
 C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\obj\Release\MSON.dll
 C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\obj\Release\MSON.pdb
+C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\PagedList.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\PagedList.Mvc.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\PagedList.xml
+C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\PagedList.Mvc.xml
+C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\obj\Release\MSON.csprojResolveAssemblyReference.cache

@@ -136,7 +136,6 @@ namespace MSON.Controllers
 
             var model = ett.sanphams.Single(s => s.ID == id);
 
-
             //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
             ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI", model.ID_LOAIHANG);
 

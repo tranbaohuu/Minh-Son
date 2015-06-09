@@ -19,44 +19,62 @@
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Minh Sơn", "Index", "NguoiDung", new { area = "" }, new { @class = "navbar-brand" })
+
+                <a class="navbar-brand" href="@Url.Action("Index", "NguoiDung")">
+                    <img alt="Minh Sơn" style="height: 48px; margin-top: -15px;" src="../../IMAGES/logo.png">
+                </a>
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Trang chủ", "Index", "NguoiDung")</li>
-                    <li>@Html.ActionLink("Sản phẩm", "SanPham", "NguoiDung")</li>
+                    <li><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-home fa-lg"></i>&nbsp;Trang chủ</a></li>
+                    
+                    <li><a href="@Url.Action("SanPham", "NguoiDung")"><i class="fa fa-gears fa-lg"></i>&nbsp;Sản phẩm</a></li>
 
 
                     @*<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sản phẩm <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            @foreach (var item in Model.Item2)
-                            {
-                                <li>@Html.ActionLink(@Html.DisplayFor(modelItem => item.TENLOAI).ToString(), "SanPham", "NguoiDung", new { id = item.ID }, null)</li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sản phẩm <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                @foreach (var item in Model.Item2)
+                                {
+                                    <li>@Html.ActionLink(@Html.DisplayFor(modelItem => item.TENLOAI).ToString(), "SanPham", "NguoiDung", new { id = item.ID }, null)</li>
 
-                            }
+                                }
 
-                        </ul>
-                    </li>*@
-                    <li>@Html.ActionLink("Về chúng tôi", "VeChungToi", "NguoiDung")</li>
-                    <li>@Html.ActionLink("Tuyển dụng", "VeChungToi", "NguoiDung")</li>
+                            </ul>
+                        </li>*@
+                    <li><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-users fa-lg"></i>&nbsp;Về chúng tôi</a></li>
+
+                    
+                    <li><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-user-plus fa-lg"></i>&nbsp;Tuyển dụng</a></li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+
             </div>
         </div>
     </div>
+
     <div class="container body-content">
+        <br />
+        <br />
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
+
+
+
     </div>
+
+
+
+
+    <footer class="footer" style="background-color: #333333; width: 100%; height: 100%; color: white; bottom: 0; left: 0;">
+        <div class="container">
+            <br />
+            <p class="text-muted" style="color: white;">Công ty TNHH-MTV Cơ khí chế tạo Minh Sơn - MST: 123456789 - Địa chỉ: 123/5a Bùi Thượng</p>
+
+            <p class="text-muted" style="color: white;">&copy; @DateTime.Now.Year -Thiết kế và phát triển Trần Bảo Hữu</p>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -68,7 +86,6 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-
 
 
             $('.flexslider').flexslider({
@@ -87,12 +104,12 @@
             });
 
 
-
-
         });
 
 
     </script>
     @RenderSection("scripts", required: false)
+
+
 </body>
 </html>

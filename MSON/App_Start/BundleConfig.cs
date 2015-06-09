@@ -24,11 +24,13 @@ namespace MSON
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+
                       "~/Content/bootstrap.css",
                       "~/Content/jquery-ui.css",
-                "~/Content/flexslider.css",
+                      "~/Content/flexslider.css",
                       "~/Content/font-awesome.css",
-                      "~/Content/site.css"));
+                      "~/Content/PagedList.css",
+                      "~/Content/Site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui.js"));

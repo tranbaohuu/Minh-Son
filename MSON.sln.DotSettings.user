@@ -2,4 +2,5 @@
 	<s:String x:Key="/Default/CodeInspection/Highlighting/AnalysisEnabled/@EntryValue">SOLUTION</s:String>
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\tranbaohuu\documents\visual studio 2013\Projects\MSON\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>

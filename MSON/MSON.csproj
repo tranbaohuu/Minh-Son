@@ -282,6 +282,7 @@
     <Content Include="IMAGES\k1.jpg" />
     <Content Include="IMAGES\k2.jpg" />
     <Content Include="IMAGES\k3.jpg" />
+    <Content Include="IMAGES\logo.png" />
     <Content Include="MinhSonEnt.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MinhSonEnt.edmx</DependentUpon>
@@ -328,14 +329,18 @@
     <Content Include="Scripts\unslider.js" />
     <Content Include="Scripts\unslider.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -375,6 +380,7 @@
     <Content Include="Views\NguoiDung\Detail_SanPham.cshtml" />
     <Content Include="Views\NguoiDung\SanPham.cshtml" />
     <Content Include="Views\NguoiDung\VeChungToi.cshtml" />
+    <Content Include="Views\Shared\Detail_Partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

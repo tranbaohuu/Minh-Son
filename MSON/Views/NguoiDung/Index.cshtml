@@ -4,93 +4,42 @@
 
 @{
     ViewBag.Title = "Index";
+    int i = 0;
 }
 
-<h2>Sản phẩm</h2>
-
-<p>
-    @*@Html.ActionLink("Create New", "Create")*@
-</p>
-@*<table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TEN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MOTA)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NGAYNHAP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.loaihang.TENLOAI)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TEN)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MOTA)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NGAYNHAP)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.loaihang.TENLOAI)
-                </td>
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
-                </td>
-            </tr>
-        }
-
-    </table>*@
+<div class="page-header header-mathang">
+    <h1>
+        Trang chủ
+    </h1>
+</div>
 
 
 <div class="flexslider">
     <ul class="slides">
-        <li>
-            <img src="../../IMAGES/k1.jpg" />
-        </li>
-        <li>
-            <img src="../../IMAGES/k2.jpg" />
-        </li>
-        <li>
-            <img src="../../IMAGES/k3.jpg" />
-        </li>
 
+
+        @foreach (var item in Model)
+        {
+
+            <li>
+
+                <a href="@Url.Action("Detail_SanPham", "NguoiDung", new {id = item.ID})"><img class="img-thumbnail" src="@Html.DisplayFor(model => item.IMG_URL)" /></a>
+            </li>
+            i++;
+            if (i == 5)
+            {
+                break;
+            }
+        }
     </ul>
 </div>
 
 
-@*<div class="banner">
-        <ul>
-            <li>
-                <img src="../../IMAGES/1.jpeg"/>
-            </li>
-            <li>
-                <img src="../../IMAGES/2.jpeg"/>
-            </li>
-            <li>
-                <img src="../../IMAGES/3.jpeg"/>
-            </li>
-        </ul>
-    </div>*@
-
-@*<a href="#" class="unslider-arrow prev">Previous slide</a>
-    <a href="#" class="unslider-arrow next"><i class="fa fa-chevron-right"></i></a>*@
 
 <div class="page-header header-mathang">
     <h1>
         Mẫu khuôn
-        <small>@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 1 }, new { @class = "btn btn-success" })</small>
+        <small id="smalltest">@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 1 }, new { @class = "btn btn-success" })</small>
     </h1>
 </div>
 <div class="row">
@@ -108,7 +57,7 @@
                         </p>
                     </div>
 
-                    <img class="" data-original="#" width="320" height="240" alt="Không có hình" src="@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block;">
+                    <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block;">
                     <div class="caption">
                         <p>
 
@@ -145,7 +94,7 @@
                         </p>
                     </div>
 
-                    <img class="" data-original="#" width="320" height="240" alt="Không có hình" src="@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block;">
+                    <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block;">
                     <div class="caption">
                         <p>
 
