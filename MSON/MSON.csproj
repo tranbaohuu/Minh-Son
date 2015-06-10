@@ -381,6 +381,7 @@
     <Content Include="Views\NguoiDung\SanPham.cshtml" />
     <Content Include="Views\NguoiDung\VeChungToi.cshtml" />
     <Content Include="Views\Shared\Detail_Partial.cshtml" />
+    <Content Include="Views\HeThong\UploadFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

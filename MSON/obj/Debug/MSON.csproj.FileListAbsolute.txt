@@ -112,3 +112,7 @@ C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\Page
 C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\PagedList.Mvc.dll
 C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\PagedList.xml
 C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\PagedList.Mvc.xml
+C:\Users\tranbaohuu\documents\visual studio 2013\Projects\MSON\MSON\bin\PagedList.dll
+C:\Users\tranbaohuu\documents\visual studio 2013\Projects\MSON\MSON\bin\PagedList.Mvc.dll
+C:\Users\tranbaohuu\documents\visual studio 2013\Projects\MSON\MSON\bin\PagedList.xml
+C:\Users\tranbaohuu\documents\visual studio 2013\Projects\MSON\MSON\bin\PagedList.Mvc.xml
