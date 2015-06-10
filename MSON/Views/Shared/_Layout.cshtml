@@ -16,19 +16,24 @@
 
 </head>
 <body>
-    <div class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top normal" role="navigation">
         <div class="container">
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
 
+                </button>
                 <a class="navbar-brand" href="@Url.Action("Index", "NguoiDung")">
-                    <img alt="Minh Sơn" style="height: 48px; margin-top: -15px;" src="../../IMAGES/logo.png">
+                    <img alt="Minh Sơn" src="../../IMAGES/logo.png">
                 </a>
 
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-home fa-lg"></i>&nbsp;Trang chủ</a></li>
-                    
+
                     <li><a href="@Url.Action("SanPham", "NguoiDung")"><i class="fa fa-gears fa-lg"></i>&nbsp;Sản phẩm</a></li>
 
 
@@ -43,17 +48,18 @@
 
                             </ul>
                         </li>*@
-                    <li><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-users fa-lg"></i>&nbsp;Về chúng tôi</a></li>
+                    <li><a href="@Url.Action("VeChungToi", "NguoiDung")"><i class="fa fa-users fa-lg"></i>&nbsp;Về chúng tôi</a></li>
 
-                    
+
                     <li><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-user-plus fa-lg"></i>&nbsp;Tuyển dụng</a></li>
                 </ul>
 
             </div>
         </div>
-    </div>
+    </nav>
 
     <div class="container body-content">
+        <br />
         <br />
         <br />
         @RenderBody()
@@ -87,11 +93,11 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-
+        //của slideshow
             $('.flexslider').flexslider({
                 animation: "slide",
-                slideshow: true
-
+                slideshow: true,
+                thumbCaptions: true
             });
 
             var unslider = $('.banner').unslider();
@@ -104,8 +110,19 @@
             });
 
 
-        });
 
+
+
+
+        });
+        //Menu tự co vào khi scroll
+        $(window).scroll(function () {
+            if ($(document).scrollTop() > 50) {
+                $('nav').addClass('shrink');
+            } else {
+                $('nav').removeClass('shrink');
+            }
+        });
 
     </script>
     @RenderSection("scripts", required: false)

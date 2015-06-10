@@ -23,7 +23,8 @@
 
             <li>
 
-                <a href="@Url.Action("Detail_SanPham", "NguoiDung", new {id = item.ID})"><img class="img-thumbnail" src="@Html.DisplayFor(model => item.IMG_URL)" /></a>
+                <a href="@Url.Action("Detail_SanPham", "NguoiDung", new {id = item.ID})"><img class="" src="@Html.DisplayFor(model => item.IMG_URL)" /></a>
+                <p class="flex-caption">@Html.DisplayFor(itemModel => item.TEN)</p>
             </li>
             i++;
             if (i == 5)
