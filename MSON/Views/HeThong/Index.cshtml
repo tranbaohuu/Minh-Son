@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MSON.sanpham>
+﻿@model IPagedList<MSON.sanpham>
 
 
 @{
@@ -10,19 +10,23 @@
 <p>
     @Html.ActionLink("Thêm", "Create_SanPham", "", new { @class = "btn btn-success" })
 </p>
+
+
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.TEN)
+            Mã sản phẩm
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MOTA)
+            Tên sản phẩm
+        </th>
+
+        <th>
+            Ngày nhập
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NGAYNHAP)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.loaihang.TENLOAI)
+            Loại sản phẩm
         </th>
         <th></th>
     </tr>
@@ -31,23 +35,27 @@
     {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.TEN)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MOTA)
-            </td>
-            <td>
-                @* Đổi ngày ra dd-mm-yy *@
 
-                @{
-        string ngayThangNam = item.NGAYNHAP.Value.ToString("dd/MM/yyyy");
-                }
+            <td>
 
-                @Html.DisplayFor(modelItem => ngayThangNam)
+                @Html.DisplayFor(modelItem => item.NGAYNHAP)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.loaihang.TENLOAI)
             </td>
+
+
+            <td>
+
+                <img width="150" height="150" class="img-thumbnail" src="@Html.DisplayFor(itemModel => item.IMG_URL)" />
+
+            </td>
+
             <td>
                 @Html.ActionLink("Chi tiết", "Detail_SanPham", new { id = item.ID }, new { @class = "btn btn-primary" })
                 @Html.ActionLink("Sửa", "Edit_SanPham", new { id = item.ID }, new { @class = "btn btn-warning" })
@@ -57,5 +65,9 @@
     }
 
 </table>
+
+<div class="pagedList">
+    @Html.PagedListPager(Model, page => @Url.Action("Index", new { page }), new PagedListRenderOptions() { LinkToFirstPageFormat = "Trang đầu", LinkToLastPageFormat = "Trang cuối", LinkToNextPageFormat = "Sau", LinkToPreviousPageFormat = "Trước" })
+</div>
 
 

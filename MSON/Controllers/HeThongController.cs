@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MSON.Models;
+using PagedList;
 
 namespace MSON.Controllers
 {
@@ -16,10 +17,10 @@ namespace MSON.Controllers
         private minhsondbEntities ett = new minhsondbEntities();
 
         // GET: HeThong
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
 
-            var model = ett.sanphams.Select(s => s);
+            var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.NGAYNHAP).ToPagedList(page, 10);
 
 
             return View(model);
@@ -42,19 +43,25 @@ namespace MSON.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create_SanPham(sanpham sp)
+        public ActionResult Create_SanPham(sanpham sp, HttpPostedFileBase IMG_URL)
         {
+
+            sp.IMG_URL = "/IMAGES/" + IMG_URL.FileName;
 
             if (ModelState.IsValid)
             {
                 ett.Entry(sp).State = EntityState.Added;
                 ett.SaveChanges();
+                UpFile(IMG_URL);
+
                 return RedirectToAction("Index");
             }
 
             return View(sp);
 
         }
+
+
 
         public ActionResult Edit_SanPham(int id)
         {
@@ -73,17 +80,30 @@ namespace MSON.Controllers
 
 
         [HttpPost]
-        public ActionResult Edit_SanPham(sanpham sp)
+        public ActionResult Edit_SanPham(sanpham sp, HttpPostedFileBase IMG_URL)
         {
 
-
-
-
-            if (ModelState.IsValid)
+            if (IMG_URL != null)
             {
-                ett.Entry(sp).State = EntityState.Modified;
-                ett.SaveChanges();
-                return RedirectToAction("Index");
+                sp.IMG_URL = "/IMAGES/" + IMG_URL.FileName;
+
+
+                if (ModelState.IsValid)
+                {
+                    ett.Entry(sp).State = EntityState.Modified;
+                    ett.SaveChanges();
+                    UpFile(IMG_URL);
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    ett.Entry(sp).State = EntityState.Modified;
+                    ett.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(sp);
@@ -174,9 +194,17 @@ namespace MSON.Controllers
 
 
 
-        public ActionResult UploadFile(HttpPostedFileBase file)
+        public ActionResult UploadFile()
         {
 
+
+            // after successfully uploading redirect the user
+            return View();
+        }
+
+
+        public void UpFile(HttpPostedFileBase file)
+        {
             if (file != null)
             {
                 string pic = System.IO.Path.GetFileName(file.FileName);
@@ -195,8 +223,6 @@ namespace MSON.Controllers
                 }
 
             }
-            // after successfully uploading redirect the user
-            return View();
         }
 
     }

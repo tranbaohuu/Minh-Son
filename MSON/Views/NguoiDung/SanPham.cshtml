@@ -12,7 +12,7 @@
 </div>
 
 <div class="pagedList">
-    @Html.PagedListPager(Model, page => @Url.Action("SanPham", new { page }), new PagedListRenderOptions() { LinkToFirstPageFormat = "Trang đầu", LinkToLastPageFormat = "Trang cuối", LinkToNextPageFormat = "Sau", LinkToPreviousPageFormat = "Trước" })
+    @Html.PagedListPager(Model, page => @Url.Action("Index", new { page }), new PagedListRenderOptions() { LinkToFirstPageFormat = "Trang đầu", LinkToLastPageFormat = "Trang cuối", LinkToNextPageFormat = "Sau", LinkToPreviousPageFormat = "Trước" })
 </div>
 
 
