@@ -19,27 +19,41 @@ namespace MSON.Controllers
         // GET: HeThong
         public ActionResult Index(int page = 1)
         {
+            if (Session["tendangnhap"] != null)
+            {
+                var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.NGAYNHAP).ToPagedList(page, 10);
 
-            var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.NGAYNHAP).ToPagedList(page, 10);
 
+                return View(model);
+            }
+            else
+            {
+                return RedirectToAction("LoginCustomize", "HeThong");
 
-            return View(model);
+            }
         }
 
 
 
         public ActionResult Create_SanPham()
         {
-
-            //var model = ett.sanphams.Single(s => s.ID == id);
-
-
-            //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
-            ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI");
+            if (Session["tendangnhap"] != null)
+            {
+                //var model = ett.sanphams.Single(s => s.ID == id);
 
 
-            return View();
+                //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
+                ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI");
 
+
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("LoginCustomize", "HeThong");
+
+            }
         }
 
         [HttpPost]
@@ -65,15 +79,22 @@ namespace MSON.Controllers
 
         public ActionResult Edit_SanPham(int id)
         {
-
-            var model = ett.sanphams.Single(s => s.ID == id);
-
-
-            //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
-            ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI", model.ID_LOAIHANG);
+            if (Session["tendangnhap"] != null)
+            {
+                var model = ett.sanphams.Single(s => s.ID == id);
 
 
-            return View(model);
+                //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
+                ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI", model.ID_LOAIHANG);
+
+
+                return View(model);
+            }
+            else
+            {
+                return RedirectToAction("LoginCustomize", "HeThong");
+
+            }
 
         }
 
@@ -112,24 +133,70 @@ namespace MSON.Controllers
         }
 
 
+        public ActionResult LoginCustomize()
+        {
+
+
+            return View();
+
+        }
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LoginCustomize(nguoidung nd)
+        {
+
+
+            if (nd != null)
+            {
+
+                var query = ett.nguoidungs.Where(w => w.tendangnhap == nd.tendangnhap && w.matkhau == nd.matkhau).FirstOrDefault();
+
+                if (query != null)
+                {
+                    Session["tendangnhap"] = query.tendangnhap;
+                    Session["matkhau"] = query.matkhau;
+
+                    return RedirectToAction("Index", "HeThong");
+
+
+                }
+
+
+            }
+
+
+            return View();
+
+
+        }
+
 
 
 
 
         public ActionResult Delete_SanPham(int id)
         {
+            if (Session["tendangnhap"] != null)
+            {
+
+                var model = ett.sanphams.Single(s => s.ID == id);
 
 
-            var model = ett.sanphams.Single(s => s.ID == id);
+                //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
+                //ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI", model.ID_LOAIHANG);
 
 
-            //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
-            //ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI", model.ID_LOAIHANG);
+                return View(model);
 
+            }
+            else
+            {
+                return RedirectToAction("LoginCustomize", "HeThong");
 
-            return View(model);
-
-
+            }
 
         }
 
@@ -166,6 +233,17 @@ namespace MSON.Controllers
 
 
         }
+
+        public ActionResult DangXuat()
+        {
+            Session["tendangnhap"] = null;
+            Session["matkhau"] = null;
+
+            // after successfully uploading redirect the user
+            return RedirectToAction("LoginCustomize", "HeThong");
+        }
+
+
 
 
         public ActionResult FileUpload(HttpPostedFileBase file)

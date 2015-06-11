@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="942065b112974ad9905970bf598822e6" Name="Diagram1">
+      <Diagram DiagramId="942065b112974ad9905970bf598822e6" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="minhsondbModel.loaihang" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="minhsondbModel.sanpham" Width="1.5" PointX="4.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="minhsondbModel.sysdiagram" Width="1.5" PointX="7.375" PointY="5" IsExpanded="true" />
         <AssociationConnector Association="minhsondbModel.FK_sanpham_loaihang" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="minhsondbModel.nguoidung" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

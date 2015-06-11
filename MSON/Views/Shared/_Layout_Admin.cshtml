@@ -28,7 +28,16 @@
                     @*<li>@Html.ActionLink("Thêm", "About", "Home")</li>
                         <li>@Html.ActionLink("Xóa", "Contact", "Home")</li>*@
                 </ul>
-                @Html.Partial("_LoginPartial")
+
+                @if (Session["tendangnhap"] != null)
+                {
+
+                    <ul class="nav navbar-nav pull-right ">
+                        <li>@Html.ActionLink("Đăng xuất", "DangXuat", "HeThong")</li>
+
+                    </ul>
+                }
+                @*@Html.Partial("_LoginPartial")*@
             </div>
 
         </div>

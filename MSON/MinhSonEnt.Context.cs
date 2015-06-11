@@ -27,6 +27,6 @@ namespace MSON
     
         public virtual DbSet<loaihang> loaihangs { get; set; }
         public virtual DbSet<sanpham> sanphams { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<nguoidung> nguoidungs { get; set; }
     }
 }

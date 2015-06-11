@@ -215,14 +215,14 @@
     <Compile Include="Models\KieuCuaToiModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SanPhamModels.cs" />
+    <Compile Include="nguoidung.cs">
+      <DependentUpon>MinhSonEnt.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sanpham.cs">
       <DependentUpon>MinhSonEnt.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>MinhSonEnt.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -383,6 +383,7 @@
     <Content Include="Views\NguoiDung\VeChungToi.cshtml" />
     <Content Include="Views\Shared\Detail_Partial.cshtml" />
     <Content Include="Views\HeThong\UploadFile.cshtml" />
+    <Content Include="Views\HeThong\LoginCustomize.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
