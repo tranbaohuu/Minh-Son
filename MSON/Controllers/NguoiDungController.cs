@@ -91,5 +91,10 @@ namespace MSON.Controllers
 
 
 
+        public ActionResult demoMagnify()
+        {
+            return View();
+        }
+
     }
 }

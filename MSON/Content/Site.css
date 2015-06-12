@@ -69,8 +69,20 @@ textarea {
 }
 
 
+/*Kích thước Modal*/
+
+/*.modal.modal-wide .modal-dialog {
+  width: 90%;
+}
+.modal-wide .modal-body {
+  overflow-y: auto;
+}*/
 /*Phần CSS của Menu tự dãn*/
 
+#myModal .modal-dialog
+{
+  width: 70%;
+}
 
 .normal {
     font-size: larger;

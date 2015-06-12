@@ -49,5 +49,6 @@
     </Key>
     <Property Name="tendangnhap" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="matkhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ngaynhap" Type="DateTime" Precision="0" />
   </EntityType>
 </Schema>

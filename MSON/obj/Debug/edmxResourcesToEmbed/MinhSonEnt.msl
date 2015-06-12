@@ -26,6 +26,7 @@
     <EntitySetMapping Name="nguoidungs">
       <EntityTypeMapping TypeName="minhsondbModel.nguoidung">
         <MappingFragment StoreEntitySet="nguoidung">
+          <ScalarProperty Name="ngaynhap" ColumnName="ngaynhap" />
           <ScalarProperty Name="matkhau" ColumnName="matkhau" />
           <ScalarProperty Name="tendangnhap" ColumnName="tendangnhap" />
         </MappingFragment>

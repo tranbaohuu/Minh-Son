@@ -249,6 +249,7 @@
     <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\magnify.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\flexslider-icon.svg" />
@@ -266,23 +267,24 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MinhSonEnt.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="IMAGES\1.jpeg" />
-    <Content Include="IMAGES\10.jpg" />
-    <Content Include="IMAGES\11.jpg" />
-    <Content Include="IMAGES\12.jpeg" />
-    <Content Include="IMAGES\13.jpeg" />
-    <Content Include="IMAGES\14.jpeg" />
-    <Content Include="IMAGES\2.jpeg" />
-    <Content Include="IMAGES\3.jpg" />
-    <Content Include="IMAGES\4.jpeg" />
-    <Content Include="IMAGES\5.jpeg" />
-    <Content Include="IMAGES\6.jpeg" />
-    <Content Include="IMAGES\7.jpg" />
-    <Content Include="IMAGES\8.jpg" />
-    <Content Include="IMAGES\9.jpg" />
-    <Content Include="IMAGES\k1.jpg" />
-    <Content Include="IMAGES\k2.jpg" />
-    <Content Include="IMAGES\k3.jpg" />
+    <Content Include="IMAGES\IMG_0_12-6-2015_2-20-39.jpg" />
+    <Content Include="IMAGES\IMG_0_12-6-2015_2-25-34.jpg" />
+    <Content Include="IMAGES\IMG_0_12-6-2015_2-27-59.jpg" />
+    <Content Include="IMAGES\IMG_0_12-6-2015_2-28-23.jpg" />
+    <Content Include="IMAGES\IMG_0_12-6-2015_2-28-45.jpg" />
+    <Content Include="IMAGES\IMG_1025_12-6-2015_2-19-35.jpg" />
+    <Content Include="IMAGES\IMG_1026_12-6-2015_2-20-3.jpg" />
+    <Content Include="IMAGES\IMG_1027_12-6-2015_2-16-33.jpg" />
+    <Content Include="IMAGES\IMG_1029_12-6-2015_2-18-10.jpg" />
+    <Content Include="IMAGES\IMG_1030_12-6-2015_2-17-41.jpg" />
+    <Content Include="IMAGES\IMG_1_12-6-2015_2-10-21.jpg" />
+    <Content Include="IMAGES\IMG_2_12-6-2015_2-12-31.jpg" />
+    <Content Include="IMAGES\IMG_3_12-6-2015_2-15-37.jpg" />
+    <Content Include="IMAGES\IMG_4_12-6-2015_2-15-11.jpg" />
+    <Content Include="IMAGES\IMG_5_12-6-2015_2-14-41.jpg" />
+    <Content Include="IMAGES\IMG_6_12-6-2015_2-14-1.jpg" />
+    <Content Include="IMAGES\IMG_7_12-6-2015_2-13-28.jpg" />
+    <Content Include="IMAGES\IMG_8_12-6-2015_2-17-13.jpg" />
     <Content Include="IMAGES\logo.png" />
     <Content Include="MinhSonEnt.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -317,6 +319,7 @@
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.flexslider-min.js" />
     <Content Include="Scripts\jquery.flexslider.js" />
+    <Content Include="Scripts\jquery.magnify.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -384,6 +387,8 @@
     <Content Include="Views\Shared\Detail_Partial.cshtml" />
     <Content Include="Views\HeThong\UploadFile.cshtml" />
     <Content Include="Views\HeThong\LoginCustomize.cshtml" />
+    <Content Include="Views\HeThong\RegisterCustomize.cshtml" />
+    <Content Include="Views\NguoiDung\demoMagnify.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

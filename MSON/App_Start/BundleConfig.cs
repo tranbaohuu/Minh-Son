@@ -30,7 +30,9 @@ namespace MSON
                       "~/Content/flexslider.css",
                       "~/Content/font-awesome.css",
                       "~/Content/PagedList.css",
+                      //"~/Content/magnify.css",
                       "~/Content/Site.css"));
+
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui.js"));
@@ -41,6 +43,9 @@ namespace MSON
 
             bundles.Add(new ScriptBundle("~/bundles/unslider").Include(
                      "~/Scripts/unslider.js"));
+
+           // bundles.Add(new ScriptBundle("~/bundles/magnify").Include(
+           //"~/Scripts/jquery.magnify.js"));
 
 
         }

@@ -23,7 +23,7 @@
 
             <li>
 
-                <a href="@Url.Action("Detail_SanPham", "NguoiDung", new {id = item.ID})"><img class="" src="@Html.DisplayFor(model => item.IMG_URL)" /></a>
+                <a href="@Url.Action("Detail_SanPham", "NguoiDung", new {id = item.ID})"><img class="" src="~/IMAGES/@Html.DisplayFor(model => item.IMG_URL)" /></a>
                 <p class="flex-caption">@Html.DisplayFor(itemModel => item.TEN)</p>
             </li>
             i++;
@@ -58,7 +58,7 @@
                         </p>
                     </div>
 
-                    <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block;">
+                    <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; width: 320px; height: 240px;">
                     <div class="caption">
                         <p>
 
@@ -95,7 +95,7 @@
                         </p>
                     </div>
 
-                    <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block;">
+                    <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; width: 320px; height: 240px;">
                     <div class="caption">
                         <p>
 

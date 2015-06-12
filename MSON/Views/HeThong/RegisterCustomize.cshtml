@@ -4,12 +4,12 @@
     ViewBag.Title = "LoginCustomize";
 }
 
-<h2>Trang đăng nhập</h2>
+<h2>Trang đăng ký</h2>
 
 
 
 
-@using (Html.BeginForm("LoginCustomize", "HeThong", FormMethod.Post)) //phải có đoạn enctype thì kiểu hình ảnh mới nhận
+@using (Html.BeginForm("RegisterCustomize", "HeThong", FormMethod.Post)) //phải có đoạn enctype thì kiểu hình ảnh mới nhận
 {
     @Html.AntiForgeryToken()
 
@@ -27,7 +27,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.matkhau, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.PasswordFor(model => model.matkhau, htmlAttributes: new { @class = "form-control" })
+                @Html.EditorFor(model => model.matkhau, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.matkhau, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -35,13 +35,15 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Đăng nhập" class="btn btn-primary" />
+                <input type="submit" value="Đăng ký" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
-
+<div>
+    @Html.ActionLink("Quay lại", "Index", "", new { @class = "btn btn-default" })
+</div>
 
 
 

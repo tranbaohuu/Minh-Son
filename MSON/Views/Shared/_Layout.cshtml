@@ -87,13 +87,14 @@
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/flexslider")
     @Scripts.Render("~/bundles/unslider")
+    @*@Scripts.Render("~/bundles/magnify")*@
 
 
 
     <script type="text/javascript">
         $(document).ready(function () {
 
-        //của slideshow
+            //của slideshow
             $('.flexslider').flexslider({
                 animation: "slide",
                 slideshow: true,
@@ -110,19 +111,28 @@
             });
 
 
+            //Magnify ảnh
+            //$('img').magnify(
+            //{
+            //    speed: 200
+            //});
 
 
-
+            //Menu tự co vào khi scroll
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 50) {
+                    $('nav').addClass('shrink');
+                } else {
+                    $('nav').removeClass('shrink');
+                }
+            });
 
         });
-        //Menu tự co vào khi scroll
-        $(window).scroll(function () {
-            if ($(document).scrollTop() > 50) {
-                $('nav').addClass('shrink');
-            } else {
-                $('nav').removeClass('shrink');
-            }
-        });
+
+
+
+
+
 
     </script>
     @RenderSection("scripts", required: false)

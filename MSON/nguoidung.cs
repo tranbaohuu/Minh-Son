@@ -7,21 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 namespace MSON
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    
+
     public partial class nguoidung
     {
-        [Required(ErrorMessage="Không được để trống !")]
-        [Display(Name = "Tên đăng nhập")]
+        [DisplayName("Tên đăng nhập")]
         public string tendangnhap { get; set; }
-
-
-        [Required(ErrorMessage = "Không được để trống !")]
-         [Display(Name = "Mật khẩu")]
+        [DisplayName("Mật khẩu")]
         public string matkhau { get; set; }
+        public Nullable<System.DateTime> ngaynhap { get; set; }
     }
 }

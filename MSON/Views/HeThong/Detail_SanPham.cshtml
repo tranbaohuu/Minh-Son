@@ -8,7 +8,9 @@
 
 @Html.Partial("Detail_Partial", Model)
 
-    <p>
-        @Html.ActionLink("Sửa", "Edit_SanPham", new { id = Model.ID }, new { @class = "btn btn-warning" })
-        @Html.ActionLink("Quay lại", "Index", "", new { @class = "btn btn-default" })
-    </p>
+<p>
+    @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-default" })
+
+
+    @Html.ActionLink("Sửa", "Edit_SanPham", new { id = Model.ID }, new { @class = "btn btn-warning" })
+</p>

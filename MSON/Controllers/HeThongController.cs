@@ -21,7 +21,7 @@ namespace MSON.Controllers
         {
             if (Session["tendangnhap"] != null)
             {
-                var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.NGAYNHAP).ToPagedList(page, 10);
+                var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.ID).ToPagedList(page, 10);
 
 
                 return View(model);
@@ -60,13 +60,15 @@ namespace MSON.Controllers
         public ActionResult Create_SanPham(sanpham sp, HttpPostedFileBase IMG_URL)
         {
 
-            sp.IMG_URL = "/IMAGES/" + IMG_URL.FileName;
+            sp.IMG_URL = "IMG_" + sp.ID + "_" + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" +
+                               DateTime.Now.Year + "_" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" +
+                               DateTime.Now.Second + ".jpg";
 
             if (ModelState.IsValid)
             {
                 ett.Entry(sp).State = EntityState.Added;
                 ett.SaveChanges();
-                UpFile(IMG_URL);
+                UpFile(IMG_URL, sp.IMG_URL);
 
                 return RedirectToAction("Index");
             }
@@ -81,6 +83,15 @@ namespace MSON.Controllers
         {
             if (Session["tendangnhap"] != null)
             {
+                string path = HttpContext.Server.MapPath("~/IMAGES/");
+                var listURLHinh = Directory
+                .EnumerateFiles(path, "*", SearchOption.AllDirectories)
+                .Select(Path.GetFileName);
+
+
+                @ViewBag.listURLHinh = listURLHinh;
+
+
                 var model = ett.sanphams.Single(s => s.ID == id);
 
 
@@ -106,19 +117,22 @@ namespace MSON.Controllers
 
             if (IMG_URL != null)
             {
-                sp.IMG_URL = "/IMAGES/" + IMG_URL.FileName;
+                sp.IMG_URL = "IMG_" + sp.ID + "_" + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" +
+                             DateTime.Now.Year + "_" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" +
+                             DateTime.Now.Second + ".jpg";
 
 
                 if (ModelState.IsValid)
                 {
                     ett.Entry(sp).State = EntityState.Modified;
                     ett.SaveChanges();
-                    UpFile(IMG_URL);
+                    UpFile(IMG_URL, sp.IMG_URL);
                     return RedirectToAction("Index");
                 }
             }
             else
             {
+
                 if (ModelState.IsValid)
                 {
                     ett.Entry(sp).State = EntityState.Modified;
@@ -126,6 +140,10 @@ namespace MSON.Controllers
                     return RedirectToAction("Index");
                 }
             }
+
+
+
+
 
             return View(sp);
 
@@ -175,6 +193,42 @@ namespace MSON.Controllers
 
 
 
+
+        public ActionResult RegisterCustomize()
+        {
+            if (Session["tendangnhap"] != null)
+            {
+
+                if (Session["tendangnhap"].Equals("admin"))
+                {
+
+                    return View();
+                }
+            }
+
+            return RedirectToAction("LoginCustomize");
+        }
+
+
+
+        [HttpPost]
+        public ActionResult RegisterCustomize(nguoidung nd)
+        {
+
+
+            if (ModelState.IsValid)
+            {
+                nd.ngaynhap = DateTime.Now;
+                ett.Entry(nd).State = EntityState.Added;
+                ett.SaveChanges();
+                return RedirectToAction("RegisterCustomize");
+            }
+
+
+            return View();
+
+
+        }
 
 
         public ActionResult Delete_SanPham(int id)
@@ -281,13 +335,16 @@ namespace MSON.Controllers
         }
 
 
-        public void UpFile(HttpPostedFileBase file)
+        public void UpFile(HttpPostedFileBase file, string fileName)
         {
             if (file != null)
             {
-                string pic = System.IO.Path.GetFileName(file.FileName);
-                string path = System.IO.Path.Combine(
-                                       Server.MapPath("~/IMAGES/"), pic);
+                //string pic = System.IO.Path.GetFileName(file.FileName);
+                //string path = System.IO.Path.Combine(
+                //                       Server.MapPath(Directory.GetCurrentDirectory() + "~/IMAGES/"), fileName);
+
+                string path = HttpContext.Server.MapPath("~/IMAGES/" + fileName);
+
                 // file is uploaded
                 file.SaveAs(path);
 
