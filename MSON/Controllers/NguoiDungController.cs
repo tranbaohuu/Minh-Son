@@ -13,6 +13,8 @@ namespace MSON.Controllers
 
         private minhsondbEntities ett = new minhsondbEntities();
         // GET: NguoiDung
+
+        [OutputCache(Duration = 60)]
         public ActionResult Index()
         {
 
@@ -43,6 +45,7 @@ namespace MSON.Controllers
         }
 
 
+        [OutputCache(Duration = 60)]
         public ActionResult Detail_SanPham(int id)
         {
 
@@ -62,7 +65,7 @@ namespace MSON.Controllers
         }
 
 
-
+        [OutputCache(Duration = 60)]
         public ActionResult SanPham(int page = 1)
         {
 

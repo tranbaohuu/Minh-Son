@@ -24,8 +24,8 @@ namespace MSON
         [DisplayName("Mô tả")]
         public string MOTA { get; set; }
         [DisplayName("Ngày nhập")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> NGAYNHAP { get; set; }
         [DisplayName("Loại sản phẩm")]
         public Nullable<int> ID_LOAIHANG { get; set; }
