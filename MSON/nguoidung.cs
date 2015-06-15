@@ -18,8 +18,10 @@ namespace MSON
     public partial class nguoidung
     {
         [DisplayName("Tên đăng nhập")]
+        [Required]
         public string tendangnhap { get; set; }
         [DisplayName("Mật khẩu")]
+        [Required]
         public string matkhau { get; set; }
         public Nullable<System.DateTime> ngaynhap { get; set; }
     }

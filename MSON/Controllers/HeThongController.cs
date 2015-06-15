@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using MSON.Models;
 using PagedList;
 
@@ -17,10 +18,28 @@ namespace MSON.Controllers
         private minhsondbEntities ett = new minhsondbEntities();
 
         // GET: HeThong
+
         public ActionResult Index(int page = 1)
         {
-            if (Session["tendangnhap"] != null)
+            //if (Session["tendangnhap"] != null)
+            //{
+            //    var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.ID).ToPagedList(page, 10);
+
+
+            //    return View(model);
+            //}
+            //else
+            //{
+            //    return RedirectToAction("LoginCustomize", "HeThong");
+
+            //}
+
+
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
             {
+
+
+                //string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
                 var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.ID).ToPagedList(page, 10);
 
 
@@ -37,8 +56,9 @@ namespace MSON.Controllers
 
         public ActionResult Create_SanPham()
         {
-            if (Session["tendangnhap"] != null)
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
             {
+
                 //var model = ett.sanphams.Single(s => s.ID == id);
 
 
@@ -81,8 +101,9 @@ namespace MSON.Controllers
 
         public ActionResult Edit_SanPham(int id)
         {
-            if (Session["tendangnhap"] != null)
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
             {
+
                 string path = HttpContext.Server.MapPath("~/IMAGES/");
                 var listURLHinh = Directory
                 .EnumerateFiles(path, "*", SearchOption.AllDirectories)
@@ -174,8 +195,16 @@ namespace MSON.Controllers
 
                 if (query != null)
                 {
-                    Session["tendangnhap"] = query.tendangnhap;
-                    Session["matkhau"] = query.matkhau;
+
+                    //set true ispersitent mới set timeout cho cookie dc
+                    FormsAuthentication.SetAuthCookie(query.tendangnhap, true);
+
+
+                    //FormsAuthentication.RedirectFromLoginPage(query.tendangnhap, false);
+
+
+                    //Session["tendangnhap"] = query.tendangnhap;
+                    //Session["matkhau"] = query.matkhau;
 
                     return RedirectToAction("Index", "HeThong");
 
@@ -196,10 +225,13 @@ namespace MSON.Controllers
 
         public ActionResult RegisterCustomize()
         {
-            if (Session["tendangnhap"] != null)
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
             {
 
-                if (Session["tendangnhap"].Equals("admin"))
+                string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+
+
+                if (username.Equals("admin"))
                 {
 
                     return View();
@@ -233,7 +265,7 @@ namespace MSON.Controllers
 
         public ActionResult Delete_SanPham(int id)
         {
-            if (Session["tendangnhap"] != null)
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
             {
 
                 var model = ett.sanphams.Single(s => s.ID == id);
@@ -290,8 +322,11 @@ namespace MSON.Controllers
 
         public ActionResult DangXuat()
         {
-            Session["tendangnhap"] = null;
-            Session["matkhau"] = null;
+            //Session["tendangnhap"] = null;
+            //Session["matkhau"] = null;
+
+            FormsAuthentication.SignOut();
+
 
             // after successfully uploading redirect the user
             return RedirectToAction("LoginCustomize", "HeThong");
@@ -360,5 +395,12 @@ namespace MSON.Controllers
             }
         }
 
+
+        public void Demo()
+        {
+
+
+
+        }
     }
 }

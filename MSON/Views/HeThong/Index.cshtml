@@ -33,35 +33,35 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TEN)
-        </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN)
+            </td>
 
-        <td>
+            <td>
 
-            @Html.DisplayFor(modelItem => item.NGAYNHAP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.loaihang.TENLOAI)
-        </td>
+                @Html.DisplayFor(modelItem => item.NGAYNHAP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.loaihang.TENLOAI)
+            </td>
 
 
-        <td>
+            <td>
 
-            <img width="150" height="150" class="img-thumbnail" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" />
+                <img width="150" height="150" class="img-thumbnail" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" />
 
-        </td>
+            </td>
 
-        <td>
-            @Html.ActionLink("Chi tiết", "Detail_SanPham", new { id = item.ID }, new { @class = "btn btn-primary" })
-            @Html.ActionLink("Sửa", "Edit_SanPham", new { id = item.ID }, new { @class = "btn btn-warning" })
-            @Html.ActionLink("Xóa", "Delete_SanPham", new { id = item.ID }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
+            <td>
+                @Html.ActionLink("Chi tiết", "Detail_SanPham", new { id = item.ID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Sửa", "Edit_SanPham", new { id = item.ID }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Xóa", "Delete_SanPham", new { id = item.ID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
     }
 
 </table>

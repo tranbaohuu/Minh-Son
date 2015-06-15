@@ -18,18 +18,24 @@ namespace MSON
     public partial class sanpham
     {
         [DisplayName("Mã sản phẩm")]
+        [Required]
         public int ID { get; set; }
         [DisplayName("Tên sản phẩm")]
+        [Required]
         public string TEN { get; set; }
         [DisplayName("Mô tả")]
         public string MOTA { get; set; }
+
         [DisplayName("Ngày nhập")]
+        [Required]
         //[DataType(DataType.Date)]
         //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> NGAYNHAP { get; set; }
         [DisplayName("Loại sản phẩm")]
+        [Required]
         public Nullable<int> ID_LOAIHANG { get; set; }
         //[DisplayName("Hình ảnh")]
+        [Required]
         public string IMG_URL { get; set; }
 
         public virtual loaihang loaihang { get; set; }

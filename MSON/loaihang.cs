@@ -22,15 +22,19 @@ namespace MSON
             this.sanphams = new HashSet<sanpham>();
         }
         [DisplayName("Mã loại hàng")]
+        [Required]
         public int ID { get; set; }
         [DisplayName("Tên loại hàng")]
+        [Required]
         public string TENLOAI { get; set; }
         [DisplayName("Mô tả")]
         public string MOTA { get; set; }
 
         [DisplayName("Ngày nhập")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required]
+
         public Nullable<System.DateTime> NGAYNHAP { get; set; }
 
         public virtual ICollection<sanpham> sanphams { get; set; }
