@@ -25,6 +25,21 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Quản lý sản phẩm", "Index", "HeThong")</li>
+                    @if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
+                    {
+                        string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+
+                        if (username.Equals("admin"))
+                        {
+
+                            <li>@Html.ActionLink("Quản lý người dùng", "QuanLyNguoiDung", "HeThong")</li>
+
+                            @*<ul class="nav navbar-nav pull-right ">
+                                    <li>@Html.ActionLink("Thêm người dùng", "RegisterCustomize", "HeThong")</li>
+
+                                </ul>*@
+                        }
+                    }
                     @*<li>@Html.ActionLink("Thêm", "About", "Home")</li>
                         <li>@Html.ActionLink("Xóa", "Contact", "Home")</li>*@
                 </ul>
@@ -40,19 +55,7 @@
                 @*@Html.Partial("_LoginPartial")*@
 
 
-                @if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
-                {
-                    string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
 
-                    if (username.Equals("admin"))
-                    {
-
-                        <ul class="nav navbar-nav pull-right ">
-                            <li>@Html.ActionLink("Thêm người dùng", "RegisterCustomize", "HeThong")</li>
-
-                        </ul>
-                    }
-                }
             </div>
 
         </div>

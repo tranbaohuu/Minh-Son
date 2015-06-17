@@ -21,6 +21,7 @@ namespace MSON.Controllers
 
         public ActionResult Index(int page = 1)
         {
+
             //if (Session["tendangnhap"] != null)
             //{
             //    var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.ID).ToPagedList(page, 10);
@@ -191,6 +192,8 @@ namespace MSON.Controllers
             if (nd != null)
             {
 
+                nd.matkhau = FormsAuthentication.HashPasswordForStoringInConfigFile(nd.matkhau, "SHA1");
+
                 var query = ett.nguoidungs.Where(w => w.tendangnhap == nd.tendangnhap && w.matkhau == nd.matkhau).FirstOrDefault();
 
                 if (query != null)
@@ -250,10 +253,11 @@ namespace MSON.Controllers
 
             if (ModelState.IsValid)
             {
+                nd.matkhau = FormsAuthentication.HashPasswordForStoringInConfigFile(nd.matkhau, "SHA1");
                 nd.ngaynhap = DateTime.Now;
                 ett.Entry(nd).State = EntityState.Added;
                 ett.SaveChanges();
-                return RedirectToAction("RegisterCustomize");
+                return RedirectToAction("QuanLyNguoiDung", "HeThong");
             }
 
 
@@ -291,14 +295,10 @@ namespace MSON.Controllers
         {
 
 
-            if (ModelState.IsValid)
-            {
-                ett.Entry(sp).State = EntityState.Deleted;
-                ett.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            ett.Entry(sp).State = EntityState.Deleted;
+            ett.SaveChanges();
+            return RedirectToAction("Index");
 
-            return View(sp);
 
 
         }
@@ -333,30 +333,97 @@ namespace MSON.Controllers
         }
 
 
-
-
-        public ActionResult FileUpload(HttpPostedFileBase file)
+        /// <summary>
+        /// Phần Quản Lý Người dùng
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        public ActionResult QuanLyNguoiDung(int page = 1)
         {
-            if (file != null)
-            {
-                string pic = System.IO.Path.GetFileName(file.FileName);
-                string path = System.IO.Path.Combine(
-                                       Server.MapPath("~/IMAGES/"), pic);
-                // file is uploaded
-                file.SaveAs(path);
 
-                // save the image path path to the database or you can send image
-                // directly to database
-                // in-case if you want to store byte[] ie. for DB
-                using (MemoryStream ms = new MemoryStream())
+
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
+            {
+                string username =
+                    FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+
+                if (username.Equals("admin"))
                 {
-                    file.InputStream.CopyTo(ms);
-                    byte[] array = ms.GetBuffer();
+                    var model = ett.nguoidungs.Select(s => s).OrderBy(o => o.tendangnhap).ToPagedList(page, 10);
+
+
+                    return View(model);
+                }
+                else
+                {
+                    return RedirectToAction("LoginCustomize", "HeThong");
+
+                }
+
+                //string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+
+            }
+            else
+            {
+                return RedirectToAction("LoginCustomize", "HeThong");
+
+
+            }
+
+
+
+
+        }
+
+        public ActionResult Delete_NguoiDung(string tendangnhap)
+        {
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
+            {
+
+                string username =
+                    FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+
+                if (username.Equals("admin"))
+                {
+                    var model = ett.nguoidungs.Single(s => s.tendangnhap == tendangnhap);
+
+
+                    //truyền dữ liệu vào dropdownlist tên DS_LOAIHANG trong view Edit_SanPham
+                    //ViewBag.ID_LOAIHANG = new SelectList(ett.loaihangs, "ID", "TENLOAI", model.ID_LOAIHANG);
+
+
+                    return View(model);
+                }
+
+                else
+                {
+                    return RedirectToAction("LoginCustomize", "HeThong");
+
                 }
 
             }
-            // after successfully uploading redirect the user
-            return RedirectToAction("Create_SanPham", "HeThong");
+            else
+            {
+                return RedirectToAction("LoginCustomize", "HeThong");
+
+            }
+
+
+        }
+
+        [HttpPost]
+        public ActionResult Delete_NguoiDung(nguoidung nd)
+        {
+
+
+
+            ett.Entry(nd).State = EntityState.Deleted;
+            ett.SaveChanges();
+            return RedirectToAction("QuanLyNguoiDung", "HeThong");
+
+
+
+
         }
 
 
@@ -396,11 +463,6 @@ namespace MSON.Controllers
         }
 
 
-        public void Demo()
-        {
 
-
-
-        }
     }
 }

@@ -18,6 +18,7 @@
 <body>
     <nav class="navbar navbar-default navbar-fixed-top normal" role="navigation">
         <div class="container">
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -25,16 +26,19 @@
                     <span class="icon-bar"></span>
 
                 </button>
+
                 <a class="navbar-brand" href="@Url.Action("Index", "NguoiDung")">
                     <img alt="Minh Sơn" src="../../IMAGES/logo.png">
                 </a>
 
             </div>
+
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-home fa-lg"></i>&nbsp;Trang chủ</a></li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")"><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-home fa-lg"></i>&nbsp;Trang chủ</a></li>
 
-                    <li><a href="@Url.Action("SanPham", "NguoiDung")"><i class="fa fa-gears fa-lg"></i>&nbsp;Sản phẩm</a></li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SanPham" ? "active" : "")"><a href="@Url.Action("SanPham", "NguoiDung")"><i class="fa fa-gears fa-lg"></i>&nbsp;Sản phẩm</a></li>
 
 
                     @*<li class="dropdown">
@@ -48,13 +52,48 @@
 
                             </ul>
                         </li>*@
-                    <li><a href="@Url.Action("VeChungToi", "NguoiDung")"><i class="fa fa-users fa-lg"></i>&nbsp;Về chúng tôi</a></li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "VeChungToi" ? "active" : "")"><a href="@Url.Action("VeChungToi", "NguoiDung")"><i class="fa fa-users fa-lg"></i>&nbsp;Về chúng tôi</a></li>
 
 
-                    <li><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-user-plus fa-lg"></i>&nbsp;Tuyển dụng</a></li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "TuyenDung" ? "active" : "")"><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-user-plus fa-lg"></i>&nbsp;Tuyển dụng</a></li>
                 </ul>
+                @{
+                    string action = ViewContext.RouteData.Values["action"].ToString();
+
+                    if (action == "SanPham")
+                    {
+                        using (Ajax.BeginForm(new AjaxOptions
+                        {
+                            HttpMethod = "post",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "zoneUpdateAjax"
+
+
+                        }))
+                        {
+                            <div class="navbar-form navbar-right normal" id="formSearch" role="search">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="tensp" placeholder="Tên máy">
+                                </div>
+                                <button type="submit" class="btn btn-default">Tìm</button>
+                            </div>
+                        }
+                    }
+                }
+
+
+                @*@using (Html.BeginForm("SanPham", "NguoiDung",FormMethod.Post))
+                    {
+                        <div class="navbar-form navbar-right normal" id="formSearch" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="id" placeholder="Thông tin">
+                            </div>
+                            <button type="submit" class="btn btn-default">Tìm</button>
+                        </div>
+                    }*@
 
             </div>
+
         </div>
     </nav>
 
@@ -85,8 +124,14 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/flexslider")
     @Scripts.Render("~/bundles/unslider")
+    @Scripts.Render("~/bundles/less")
+    @Scripts.Render("~/bundles/unobtrusive-ajax")
+
+
+
     @*@Scripts.Render("~/bundles/magnify")*@
 
 
@@ -122,19 +167,29 @@
             $(window).scroll(function () {
                 if ($(document).scrollTop() > 50) {
                     $('nav').addClass('shrink');
+                    $('#formSearch').addClass('shrink');
                 } else {
                     $('nav').removeClass('shrink');
+                    $('#formSearch').removeClass('shrink');
                 }
             });
 
         });
 
 
+        //Code tô màu vị trí trang đang đứng trên thanh menu bar
+        //$(".navbar-collapse li").click(function () {
 
 
+        //    $(this).addClass("active");
+
+
+        //});
 
 
     </script>
+
+
     @RenderSection("scripts", required: false)
 
 

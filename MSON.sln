@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSON", "MSON\MSON.csproj", "{3C377646-3CA4-479C-A8D2-4565E3AFEDEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSON_WEB_API2", "MSON_WEB_API2\MSON_WEB_API2.csproj", "{241D1B2D-A742-4C4F-B0EF-588199F527F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3C377646-3CA4-479C-A8D2-4565E3AFEDEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C377646-3CA4-479C-A8D2-4565E3AFEDEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C377646-3CA4-479C-A8D2-4565E3AFEDEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{241D1B2D-A742-4C4F-B0EF-588199F527F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{241D1B2D-A742-4C4F-B0EF-588199F527F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{241D1B2D-A742-4C4F-B0EF-588199F527F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{241D1B2D-A742-4C4F-B0EF-588199F527F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

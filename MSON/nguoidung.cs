@@ -18,10 +18,10 @@ namespace MSON
     public partial class nguoidung
     {
         [DisplayName("Tên đăng nhập")]
-        [Required]
+        [Required(ErrorMessage = "Không được bỏ trống !")]
         public string tendangnhap { get; set; }
         [DisplayName("Mật khẩu")]
-        [Required]
+        [Required(ErrorMessage = "Không được bỏ trống !")]
         public string matkhau { get; set; }
         public Nullable<System.DateTime> ngaynhap { get; set; }
     }

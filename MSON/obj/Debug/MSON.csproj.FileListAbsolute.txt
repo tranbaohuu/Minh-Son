@@ -107,7 +107,6 @@ C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\Syst
 C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\System.Web.Optimization.xml
 C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\obj\Debug\MSON.dll
 C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\obj\Debug\MSON.pdb
-C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\obj\Debug\MSON.csprojResolveAssemblyReference.cache
 C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\PagedList.dll
 C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\PagedList.Mvc.dll
 C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\bin\PagedList.xml
@@ -116,3 +115,4 @@ C:\Users\tranbaohuu\documents\visual studio 2013\Projects\MSON\MSON\bin\PagedLis
 C:\Users\tranbaohuu\documents\visual studio 2013\Projects\MSON\MSON\bin\PagedList.Mvc.dll
 C:\Users\tranbaohuu\documents\visual studio 2013\Projects\MSON\MSON\bin\PagedList.xml
 C:\Users\tranbaohuu\documents\visual studio 2013\Projects\MSON\MSON\bin\PagedList.Mvc.xml
+C:\Users\tranbaohuu\Documents\Visual Studio 2013\Projects\Minh-Son\MSON\obj\Debug\MSON.csprojResolveAssemblyReference.cache

@@ -22,10 +22,10 @@ namespace MSON
             this.sanphams = new HashSet<sanpham>();
         }
         [DisplayName("Mã loại hàng")]
-        [Required]
+        [Required(ErrorMessage = "Không được bỏ trống !")]
         public int ID { get; set; }
         [DisplayName("Tên loại hàng")]
-        [Required]
+        [Required(ErrorMessage = "Không được bỏ trống !")]
         public string TENLOAI { get; set; }
         [DisplayName("Mô tả")]
         public string MOTA { get; set; }
@@ -33,7 +33,7 @@ namespace MSON
         [DisplayName("Ngày nhập")]
         //[DataType(DataType.Date)]
         //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        [Required]
+        [Required(ErrorMessage = "Không được bỏ trống !")]
 
         public Nullable<System.DateTime> NGAYNHAP { get; set; }
 

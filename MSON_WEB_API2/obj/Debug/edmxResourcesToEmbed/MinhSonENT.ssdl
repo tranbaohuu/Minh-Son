@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="minhsondbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="loaihang">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENLOAI" Type="nvarchar" MaxLength="50" />
+    <Property Name="MOTA" Type="nvarchar(max)" />
+    <Property Name="NGAYNHAP" Type="date" />
+  </EntityType>
+  <EntityType Name="nguoidung">
+    <Key>
+      <PropertyRef Name="tendangnhap" />
+    </Key>
+    <Property Name="tendangnhap" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="matkhau" Type="nvarchar" MaxLength="50" />
+    <Property Name="ngaynhap" Type="date" />
+  </EntityType>
+  <EntityType Name="sanpham">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TEN" Type="nvarchar" MaxLength="50" />
+    <Property Name="MOTA" Type="nvarchar(max)" />
+    <Property Name="NGAYNHAP" Type="date" />
+    <Property Name="ID_LOAIHANG" Type="int" />
+    <Property Name="IMG_URL" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_sanpham_loaihang">
+    <End Role="loaihang" Type="Self.loaihang" Multiplicity="0..1" />
+    <End Role="sanpham" Type="Self.sanpham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loaihang">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="sanpham">
+        <PropertyRef Name="ID_LOAIHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="minhsondbModelStoreContainer">
+    <EntitySet Name="loaihang" EntityType="Self.loaihang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nguoidung" EntityType="Self.nguoidung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sanpham" EntityType="Self.sanpham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_sanpham_loaihang" Association="Self.FK_sanpham_loaihang">
+      <End Role="loaihang" EntitySet="loaihang" />
+      <End Role="sanpham" EntitySet="sanpham" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

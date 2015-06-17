@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using PagedList;
 
 namespace MSON.Controllers
@@ -17,6 +18,7 @@ namespace MSON.Controllers
         [OutputCache(Duration = 60)]
         public ActionResult Index()
         {
+
 
 
             var listLoaiHang = ett.loaihangs.Select(l => l).ToList();
@@ -45,6 +47,9 @@ namespace MSON.Controllers
         }
 
 
+
+
+
         [OutputCache(Duration = 60)]
         public ActionResult Detail_SanPham(int id)
         {
@@ -65,11 +70,15 @@ namespace MSON.Controllers
         }
 
 
-        [OutputCache(Duration = 60)]
+        //[OutputCache(Duration = 60)]
+
+
         public ActionResult SanPham(int page = 1)
         {
 
+
             var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.NGAYNHAP).ToPagedList(page, 12);
+
 
 
 
@@ -79,6 +88,53 @@ namespace MSON.Controllers
 
         }
 
+
+        [HttpPost]
+        public ActionResult SanPham(string tensp, int page = 1)
+        {
+
+
+
+
+
+
+
+
+            var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.NGAYNHAP).ToPagedList(page, 12);
+
+            if (Request.IsAjaxRequest())
+            {
+                model = ett.sanphams.Where(w => w.TEN.Contains(tensp)).Select(s => s).OrderByDescending(o => o.NGAYNHAP).ToPagedList(page, 12);
+                return PartialView("SanPham_Partial", model);
+            }
+
+
+            //if (id != 0)
+            //{
+            //    model = ett.sanphams.Where(w => w.ID == id).Select(s => s).OrderByDescending(o => o.NGAYNHAP).ToPagedList(page, 12);
+
+            //    return PartialView("SanPham_Partial", model);
+            //}
+
+
+            //var tuple = new Tuple<List<sanpham>, List<loaihang>>(ett.sanphams.Where(w => w.ID_LOAIHANG == id).Select(s => s).ToList(), ett.loaihangs.Select(s => s).ToList());
+            return View(model);
+
+        }
+
+
+        //public ActionResult TimSanPham(int id)
+        //{
+
+        //    var model = ett.sanphams.Where(w => w.ID == id).FirstOrDefault();
+
+
+
+
+        //    //var tuple = new Tuple<List<sanpham>, List<loaihang>>(ett.sanphams.Where(w => w.ID_LOAIHANG == id).Select(s => s).ToList(), ett.loaihangs.Select(s => s).ToList());
+        //    return RedirectToAction("SanPham", model);
+
+        //}
 
         public ActionResult VeChungToi()
         {
