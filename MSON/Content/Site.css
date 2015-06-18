@@ -319,3 +319,10 @@ textarea {
     }
 
 /*Kết thúc CSS của TimeLine*/
+
+/*Z-Index cho autocomplete*/
+
+
+.ui-autocomplete {
+    z-index: 9999 !important;
+}

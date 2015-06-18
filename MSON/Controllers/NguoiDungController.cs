@@ -155,5 +155,27 @@ namespace MSON.Controllers
             return View();
         }
 
+
+
+
+
+        //Tham số nhất định phải là term, nếu khác ko truyền được.
+        public ActionResult AutoCompleteSanPham(string term)
+        {
+
+
+            List<sanpham> lSP = ett.sanphams.Where(w => w.TEN.Contains(term)).Take(10).ToList();
+
+
+
+            // Get Tags from database
+            //string[] tags = { "ASP.NET", "WebForms", 
+            //        "MVC", "jQuery", "ActionResult", 
+            //        "MangoDB", "Java", "Windows" };
+            //return this.Json(tags.Where(t => t.StartsWith(term)),
+            //                JsonRequestBehavior.AllowGet);
+
+            return this.Json(lSP.Select(s => s.TEN), JsonRequestBehavior.AllowGet);
+        }
     }
 }
