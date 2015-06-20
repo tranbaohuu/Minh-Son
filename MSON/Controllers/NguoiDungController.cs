@@ -70,21 +70,46 @@ namespace MSON.Controllers
         }
 
 
-        //[OutputCache(Duration = 60)]
+        [OutputCache(Duration = 60)]
 
 
-        public ActionResult SanPham(int page = 1)
+        public ActionResult SanPham(int loai = 1, int page = 1)
         {
 
+            @ViewBag.IDLoaiHang = loai;
 
-            var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.NGAYNHAP).ToPagedList(page, 12);
+            var listLoaiHang = ett.loaihangs.Select(s => s);
 
+
+
+            var tempItem = new SelectListItem();
+            tempItem.Value = "0";
+            tempItem.Text = "Tất cả";
+
+
+            var selectListTemp = new SelectList(listLoaiHang, "ID", "TENLOAI").ToList();
+
+            selectListTemp.Add(tempItem);
+
+            @ViewBag.LoaiSanPham = selectListTemp.OrderBy(o => o.Value).ToList();
+
+
+            if (loai != 0)
+            {
+                var model = ett.sanphams.Where(w => w.ID_LOAIHANG == loai).Select(s => s).OrderBy(o => o.ID).ToPagedList(page, 12);
+                return View(model);
+            }
+            else
+            {
+                var model = ett.sanphams.Select(s => s).OrderBy(o => o.ID).ToPagedList(page, 12);
+                return View(model);
+            }
 
 
 
 
             //var tuple = new Tuple<List<sanpham>, List<loaihang>>(ett.sanphams.Where(w => w.ID_LOAIHANG == id).Select(s => s).ToList(), ett.loaihangs.Select(s => s).ToList());
-            return View(model);
+
 
         }
 
@@ -99,12 +124,11 @@ namespace MSON.Controllers
 
 
 
-
-            var model = ett.sanphams.Select(s => s).OrderByDescending(o => o.NGAYNHAP).ToPagedList(page, 12);
+            var model = ett.sanphams.Select(s => s).OrderBy(o => o.ID).ToPagedList(1, 12);
 
             if (Request.IsAjaxRequest())
             {
-                model = ett.sanphams.Where(w => w.TEN.Contains(tensp)).Select(s => s).OrderByDescending(o => o.NGAYNHAP).ToPagedList(page, 12);
+                model = ett.sanphams.Where(w => w.TEN.Contains(tensp)).Select(s => s).OrderBy(o => o.ID).ToPagedList(1, 12);
                 return PartialView("SanPham_Partial", model);
             }
 

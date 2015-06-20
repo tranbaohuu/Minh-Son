@@ -16,6 +16,13 @@ namespace MSON
 
 
 
+            routes.MapRoute(
+                name: "RouteSanPham",
+                url: "NguoiDung/SanPham/{page}/{loai}",
+                defaults: new { controller = "NguoiDung", action = "SanPham", page = 1, loai = 0 }
+                //new { controller = "NguoiDung", action = "SanPham", page = UrlParameter.Optional}
+            );
+
 
             routes.MapRoute(
                 name: "Default",

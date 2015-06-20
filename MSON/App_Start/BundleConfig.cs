@@ -30,7 +30,8 @@ namespace MSON
                       "~/Content/flexslider.css",
                       "~/Content/font-awesome.css",
                       "~/Content/PagedList.css",
-                      //"~/Content/magnify.css",
+                      "~/Content/bootstrap-select.min.css",
+                //"~/Content/magnify.css",
                       "~/Content/Site.css"));
 
 
@@ -44,17 +45,20 @@ namespace MSON
             bundles.Add(new ScriptBundle("~/bundles/unslider").Include(
                      "~/Scripts/unslider.js"));
 
-            
+
             bundles.Add(new ScriptBundle("~/bundles/less").Include(
                      "~/Scripts/less.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap-select").Include(
+                "~/Scripts/bootstrap-select.min.js"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/unobtrusive-ajax").Include(
              "~/Scripts/jquery.unobtrusive-ajax.min.js"));
 
 
-           // bundles.Add(new ScriptBundle("~/bundles/magnify").Include(
-           //"~/Scripts/jquery.magnify.js"));
+            // bundles.Add(new ScriptBundle("~/bundles/magnify").Include(
+            //"~/Scripts/jquery.magnify.js"));
 
 
         }

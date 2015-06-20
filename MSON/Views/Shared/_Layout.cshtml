@@ -28,7 +28,7 @@
                 </button>
 
                 <a class="navbar-brand" href="@Url.Action("Index", "NguoiDung")">
-                    <img alt="Minh Sơn" src="../../IMAGES/logo.png">
+                    <img title="Cơ khí Minh Sơn" alt="Minh Sơn" src="~/IMAGES/logo.png">
                 </a>
 
             </div>
@@ -38,7 +38,7 @@
                 <ul class="nav navbar-nav">
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")"><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-home fa-lg"></i>&nbsp;Trang chủ</a></li>
 
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SanPham" ? "active" : "")"><a href="@Url.Action("SanPham", "NguoiDung")"><i class="fa fa-gears fa-lg"></i>&nbsp;Sản phẩm</a></li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SanPham" ? "active" : "")"><a href="@Url.RouteUrl("RouteSanPham", new { page = 1, loai = 0 })"><i class="fa fa-gears fa-lg"></i>&nbsp;Sản phẩm</a></li>
 
 
                     @*<li class="dropdown">
@@ -102,7 +102,6 @@
         <br />
         <br />
         @RenderBody()
-        <hr />
 
 
 
@@ -129,6 +128,7 @@
     @Scripts.Render("~/bundles/unslider")
     @Scripts.Render("~/bundles/less")
     @Scripts.Render("~/bundles/unobtrusive-ajax")
+    @Scripts.Render("~/bundles/bootstrap-select")
 
 
 
@@ -138,9 +138,33 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+
+            //Sự kiện droplist LoaiSP change
+
+            $("#dropListLoaiSP").change(function () {
+
+                var valueLoai = ($("#dropListLoaiSP option:selected").val());
+
+                //window.location.href = "/NguoiDung/SanPham?page=1&loai=" + valueLoai;
+                window.location.href = "/NguoiDung/SanPham/1/" + valueLoai;
+
+
+            });
+
+
+            //Live-Search cho droplist
+            $("#dropListLoaiSP").attr("data-live-search", true);
+
+
+
+            //dropdown list live-search
+
+            $('.selectpicker').selectpicker();
+
+
             //set trắng textbox tìm kiếm
 
-            $("#tbTimKiem").focus(function() {
+            $("#tbTimKiem").focus(function () {
 
                 $("#tbTimKiem").val("");
 
