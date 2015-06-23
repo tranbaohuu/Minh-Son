@@ -57,6 +57,11 @@ namespace MSON
              "~/Scripts/jquery.unobtrusive-ajax.min.js"));
 
 
+            bundles.Add(new ScriptBundle("~/bundles/parallax").Include(
+            "~/Scripts/parallax.min.js"));
+
+
+
             // bundles.Add(new ScriptBundle("~/bundles/magnify").Include(
             //"~/Scripts/jquery.magnify.js"));
 

@@ -15,7 +15,7 @@ namespace MSON.Controllers
         private minhsondbEntities ett = new minhsondbEntities();
         // GET: NguoiDung
 
-        [OutputCache(Duration = 60)]
+        //[OutputCache(Duration = 60)]
         public ActionResult Index()
         {
 

@@ -405,3 +405,11 @@ textarea {
         background-color: #333333;
     }
 }
+
+
+/*set kích thước ảnh của parallax*/
+.parallax-window {
+    min-height: 800px;
+    background: transparent;
+}
+

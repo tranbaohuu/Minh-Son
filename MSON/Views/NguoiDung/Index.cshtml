@@ -3,109 +3,442 @@
 @*@model Tuple<List<sanpham>, List<loaihang>>*@
 
 @{
+    Layout = null;
+
+
     ViewBag.Title = "Trang chủ";
     int i = 0;
 }
 
-<div class="page-header header-mathang">
-    <h1>
-        Trang chủ
-    </h1>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="Shortcut Icon" href="../../IMAGES/logo.png" type="image/x-icon" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,vietnamese' rel='stylesheet' type='text/css' />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
 
-<div class="flexslider">
-    <ul class="slides">
+
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top normal" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+
+                <a class="navbar-brand" href="@Url.Action("Index", "NguoiDung")">
+                    <img title="Cơ khí Minh Sơn" alt="Minh Sơn" src="~/IMAGES/logo.png">
+                </a>
+
+            </div>
 
 
-        @foreach (var item in Model)
-        {
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")"><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-home fa-lg"></i>&nbsp;Trang chủ</a></li>
 
-            <li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SanPham" ? "active" : "")"><a href="@Url.RouteUrl("RouteSanPham", new { page = 1, loai = 0 })"><i class="fa fa-gears fa-lg"></i>&nbsp;Sản phẩm</a></li>
 
-                <a href="@Url.Action("Detail_SanPham", "NguoiDung", new {id = item.ID})"><img class="" src="~/IMAGES/@Html.DisplayFor(model => item.IMG_URL)" /></a>
-                <p class="flex-caption">@Html.DisplayFor(itemModel => item.TEN)</p>
-            </li>
-            i++;
-            if (i == 5)
+
+                    @*<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sản phẩm <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                @foreach (var item in Model.Item2)
+                                {
+                                    <li>@Html.ActionLink(@Html.DisplayFor(modelItem => item.TENLOAI).ToString(), "SanPham", "NguoiDung", new { id = item.ID }, null)</li>
+
+                                }
+
+                            </ul>
+                        </li>*@
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "VeChungToi" ? "active" : "")"><a href="@Url.Action("VeChungToi", "NguoiDung")"><i class="fa fa-users fa-lg"></i>&nbsp;Về chúng tôi</a></li>
+
+
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "TuyenDung" ? "active" : "")"><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-user-plus fa-lg"></i>&nbsp;Tuyển dụng</a></li>
+                </ul>
+                @{
+                    string action = ViewContext.RouteData.Values["action"].ToString();
+
+                    if (action == "SanPham")
+                    {
+                        using (Ajax.BeginForm(new AjaxOptions
+                        {
+                            HttpMethod = "post",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "zoneUpdateAjax"
+
+
+                        }))
+                        {
+                            <div class="navbar-form navbar-right normal" id="formSearch" role="search">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="tbTimKiem" style="z-index: 999; display: inline;" name="tensp" placeholder="Tên máy">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search fa-lg"></i></button>
+
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+
+
+                @*@using (Html.BeginForm("SanPham", "NguoiDung",FormMethod.Post))
+                    {
+                        <div class="navbar-form navbar-right normal" id="formSearch" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="id" placeholder="Thông tin">
+                            </div>
+                            <button type="submit" class="btn btn-default">Tìm</button>
+                        </div>
+                    }*@
+
+            </div>
+
+        </div>
+    </nav>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+    <div class="container body-content">
+        <div class="jumbotron" style="background-color: #fafafa; ">
+            <h1>Lời chào từ Minh Sơn</h1>
+            <p>Thành lập từ năm 2003 đến nay sau hơn 12 năm kinh nghiệm chúng tôi tự tin với khả năng của mình có thể gia công và chế tạo ra những sản phẩm tốt với giá cả hợp lý nhất đến cho khách hàng.</p>
+            @*<p>
+                    <a class="btn btn-primary btn-lg" role="button">
+                        Chi tiết
+                    </a>
+                </p>*@
+        </div>
+
+    </div>
+    <div class="parallax-window full-width-div" data-parallax="scroll" style="width: 100%" data-image-src="/IMAGES/parallax-engine.jpg"></div>
+
+    <br />
+    <br />
+    <br />
+    <div class="container body-content">
+
+        <div class="jumbotron" style="background-color: #fafafa;">
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div style="text-align: center;">
+                        <i class="fa fa-users fa-5x" style="color: #0e1752;"></i>
+                        <p>Con người</p>
+                        <p style="text-align: left; font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Với đội ngũ trên 30 thợ lành nghề trong số đó cao nhất có trên 10 năm kinh nghiệm, luôn luôn không ngừng nâng cao tay nghề, học hỏi để luôn thích ứng được với sự thay đổi của yêu cầu công việc.</p>
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-md-4">
+                    <div style="text-align: center;">
+                        <i class="fa fa-plug fa-5x" style="color: #ff0c3e;"></i>
+                        <p>Máy móc</p>
+                        <p style="text-align: left; font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Được đầu tư các loại máy tiện, phay CNC và mới đây là máy cắt Lassert. Có thể đáp ứng từng tiêu chí đề ra cho từng sản phẩm.</p>
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-md-4">
+                    <div style="text-align: center;">
+                        <i class="fa fa-eye fa-5x" style="color: #00a9ff;"></i>
+                        <p>Sứ mệnh</p>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="parallax-window" data-parallax="scroll" data-image-src="/IMAGES/parralax-escalator.jpg"></div>
+    <br />
+    <br />
+    <br />
+    <div class="container body-content">
+
+        <div class="jumbotron" style="background-color: #fafafa; ">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div style="text-align: center;">
+                        <i class="fa fa-briefcase fa-5x" style="color: #0e1752;"></i>
+                        <p>Đối tác</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <a href="http://www.taekwang.co.kr/">
+                            <img src="~/IMAGES/logo-doitac/taekwang-logo.png" width="200" height="200" />
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="http://www.pouchen.com/index.php/en/">
+                            <img src="~/IMAGES/logo-doitac/puchen-logo.png" width="200" height="200" />
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="https://www.facebook.com/pages/Changshin-Vietnam-CoLTD/444869092253076">
+                            <img src="~/IMAGES/logo-doitac/changsin-logo.png" style="margin-top: 30px;" width="400" height="150" />
+                        </a>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="parallax-window" data-parallax="scroll" data-image-src="/IMAGES/parallax-air.jpg"></div>
+    <br />
+    <br />
+    <br />
+    <div class="container body-content">
+
+        <div class="jumbotron" style="background-color: #fafafa;">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div style="text-align: center;">
+                        <i class="fa fa-star fa-5x" style="color: #F8D808;"></i>
+                        <p>Sản phẩm tiêu biểu</p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="flexslider">
+            <ul class="slides">
+
+
+                @foreach (var item in Model)
+                {
+
+                    <li>
+
+                        <a href="@Url.Action("Detail_SanPham", "NguoiDung", new {id = item.ID})"><img class="" src="~/IMAGES/@Html.DisplayFor(model => item.IMG_URL)" /></a>
+                        <p class="flex-caption">@Html.DisplayFor(itemModel => item.TEN)</p>
+                    </li>
+                    i++;
+                    if (i == 5)
+                    {
+                        break;
+                    }
+                }
+            </ul>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        <div class="container body-content">
+            <div class="page-header header-mathang">
+                <h1>
+                    Mẫu khuôn
+                    <small id="smalltest">@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 1 }, new { @class = "btn btn-success" })</small>
+                </h1>
+            </div>
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+                    if (item.ID_LOAIHANG == 1)
+                    {
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <div>
+
+                                    <p class="text-center">
+                                        @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
+                                    </p>
+                                </div>
+
+                                <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; width: 320px; height: 240px;">
+                                <div class="caption">
+                                    <p>
+
+                                        @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="page-header header-mathang">
+            <h1>
+                Mẫu máy
+                <small>@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 2 }, new { @class = "btn btn-success" })</small>
+
+            </h1>
+        </div>
+        <div class="row">
+
+            @foreach (var item in Model)
             {
-                break;
+                if (item.ID_LOAIHANG == 2)
+                {
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <div>
+
+                                <p class="text-center">
+                                    @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
+                                </p>
+                            </div>
+
+                            <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; width: 320px; height: 240px;">
+                            <div class="caption">
+                                <p>
+
+                                    @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
             }
-        }
-    </ul>
-</div>
 
 
 
-<div class="page-header header-mathang">
-    <h1>
-        Mẫu khuôn
-        <small id="smalltest">@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 1 }, new { @class = "btn btn-success" })</small>
-    </h1>
-</div>
-<div class="row">
 
-    @foreach (var item in Model)
-    {
-        if (item.ID_LOAIHANG == 1)
-        {
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <div>
+        </div>
 
-                        <p class="text-center">
-                            @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
-                        </p>
-                    </div>
-
-                    <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; width: 320px; height: 240px;">
-                    <div class="caption">
-                        <p>
-
-                            @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })
-                        </p>
-                    </div>
-                </div>
-            </div>
-        }
-    }
+    </div>
 
 
-</div>
-
-<div class="page-header header-mathang">
-    <h1>
-        Mẫu máy
-        <small>@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 2 }, new { @class = "btn btn-success" })</small>
-
-    </h1>
-</div>
-<div class="row">
-
-    @foreach (var item in Model)
-    {
-        if (item.ID_LOAIHANG == 2)
-        {
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <div>
-
-                        <p class="text-center">
-                            @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
-                        </p>
-                    </div>
-
-                    <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; width: 320px; height: 240px;">
-                    <div class="caption">
-                        <p>
-
-                            @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })
-                        </p>
-                    </div>
-                </div>
-            </div>
-        }
-    }
 
 
-</div>
+
+
+
+    <footer class="footer" style="background-color: #333333; width: 100%; height: 100%; color: white; bottom: 0; left: 0;">
+        <div class="container">
+            <br />
+            <p class="text-muted" style="color: white;">Công ty TNHH-MTV Cơ khí chế tạo Minh Sơn - MST: 3602477324 - Địa chỉ: 20A/4 phường Tam Hòa, Biên Hòa, Đồng Nai</p>
+
+            <p class="text-muted" style="color: white;">&copy; @DateTime.Now.Year -Thiết kế và phát triển Trần Bảo Hữu</p>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/parallax")
+    @Scripts.Render("~/bundles/flexslider")
+    @Scripts.Render("~/bundles/unslider")
+
+
+
+    @*@Scripts.Render("~/bundles/magnify")*@
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+
+            //của slideshow
+            $('.flexslider').flexslider({
+                animation: "slide",
+                slideshow: true,
+                thumbCaptions: true
+            });
+
+            var unslider = $('.banner').unslider();
+
+            $('.unslider-arrow').click(function () {
+                var fn = this.className.split(' ')[1];
+
+                //  Either do unslider.data('unslider').next() or .prev() depending on the className
+                unslider.data('unslider')[fn]();
+            });
+
+            //Menu tự co vào khi scroll
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 50) {
+                    $('nav').addClass('shrink');
+                    $('#formSearch').addClass('shrink');
+                } else {
+                    $('nav').removeClass('shrink');
+                    $('#formSearch').removeClass('shrink');
+                }
+            });
+
+        });
+
+
+        //Code tô màu vị trí trang đang đứng trên thanh menu bar
+        //$(".navbar-collapse li").click(function () {
+
+
+        //    $(this).addClass("active");
+
+
+        //});
+
+
+    </script>
+
+
+
+</body>
+</html>
