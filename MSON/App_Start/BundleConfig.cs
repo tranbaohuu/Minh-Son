@@ -31,7 +31,7 @@ namespace MSON
                       "~/Content/font-awesome.css",
                       "~/Content/PagedList.css",
                       "~/Content/bootstrap-select.min.css",
-                //"~/Content/magnify.css",
+                      //"~/Content/magnify.css",
                       "~/Content/Site.css"));
 
 
@@ -59,6 +59,10 @@ namespace MSON
 
             bundles.Add(new ScriptBundle("~/bundles/parallax").Include(
             "~/Scripts/parallax.min.js"));
+
+
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+     "~/Scripts/angular.min.js"));
 
 
 

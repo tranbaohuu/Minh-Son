@@ -8,6 +8,42 @@
 
 
 
+<meta name="google-signin-client_id" content="637420996107-4j1t5o137pn8i3no5rjerobkss21oo1p.apps.googleusercontent.com">
+
+<div class="fb-like"
+     data-share="true"
+     data-width="450"
+     data-show-faces="true">
+</div>
+
+
+<button id="fbLogout" class="btn btn-danger">Logout Facebook</button>
+
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+<a href="#" onclick="signOut();">Sign out</a>
+
+
+
+@using (Html.BeginForm(null, null, FormMethod.Get, new {id = "formGoogle"})) //phải có đoạn enctype thì kiểu hình ảnh mới nhận
+{
+    <input type="text" id="goID"/>
+    <input type="text" id="goName"/>
+    <input type="text" id="goEmail"/>
+    <input type="text" id="goImageURL" />
+}
+
+
+
+
+
 
 @using (Html.BeginForm("LoginCustomize", "HeThong", FormMethod.Post)) //phải có đoạn enctype thì kiểu hình ảnh mới nhận
 {
