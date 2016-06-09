@@ -170,8 +170,8 @@ C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Syst
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\System.Web.WebPages.Deployment.xml
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\System.Web.WebPages.Razor.xml
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\System.Web.Optimization.xml
-C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\obj\Debug\MSON.csprojResolveAssemblyReference.cache
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\obj\Debug\MSON.dll
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\obj\Debug\MSON.pdb
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Newtonsoft.Json.dll
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Newtonsoft.Json.xml
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\obj\Debug\MSON.csprojResolveAssemblyReference.cache

@@ -413,3 +413,11 @@ textarea {
     background: transparent;
 }
 
+
+
+.im-centered { margin: auto; max-width: 300px;}
+
+
+.margin-bottom-10px {
+    margin-bottom: 10px;
+}

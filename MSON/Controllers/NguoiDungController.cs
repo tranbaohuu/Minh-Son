@@ -70,7 +70,7 @@ namespace MSON.Controllers
         }
 
 
-        [OutputCache(Duration = 60)]
+        
 
 
         public ActionResult SanPham(int loai = 1, int page = 1)
