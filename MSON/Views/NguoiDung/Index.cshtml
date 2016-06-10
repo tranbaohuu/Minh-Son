@@ -187,7 +187,7 @@
         <div class="jumbotron" style="background-color: #fafafa; ">
             <div class="row">
 
-                <div class="col-md-12">
+                <div class="col-md-12 col-sm-12">
                     <div style="text-align: center;">
                         <i class="fa fa-briefcase fa-5x" style="color: #0e1752;"></i>
                         <p>Đối tác</p>
@@ -197,49 +197,46 @@
                 </div>
 
 
-                <div class="row">
-
-                    <div class="col-md-4">
+                <div class="col-md-12">
+                    <div class="col-md-4 col-sm-12">
                         <a href="http://www.taekwang.co.kr/">
-                            <img src="~/IMAGES/logo-doitac/taekwang-logo.png" width="200" height="200"/>
+                            <img src="~/IMAGES/logo-doitac/taekwang-logo.png" width="200" height="200" />
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-12">
                         <a href="http://www.pouchen.com/index.php/en/">
-                            <img src="~/IMAGES/logo-doitac/puchen-logo.png" width="200" height="200"/>
+                            <img src="~/IMAGES/logo-doitac/puchen-logo.png" width="200" height="200" />
                         </a>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-12">
                         <a href="https://www.facebook.com/pages/Changshin-Vietnam-CoLTD/444869092253076">
-                            <img src="~/IMAGES/logo-doitac/changsin-logo.png" style="margin-top: 30px;" width="400" height="150"/>
+                            <img src="~/IMAGES/logo-doitac/changsin-logo.png" class="changsin" style="margin-top: 30px;" height="150" />
                         </a>
                     </div>
-
-
-
                 </div>
-                <div class="row">
 
-                    <div class="col-md-4">
+
+                <div class="col-md-12">
+
+                    <div class="col-md-4 col-sm-12">
                         <a href="http://www.cropscience.bayer.com.vn/">
                             <img src="~/IMAGES/logo-doitac/bayer-logo.png" width="170" height="170" />
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-12">
                         <a href="https://www.toshiba.com.vn/">
                             <img src="~/IMAGES/logo-doitac/toshiba-logo.png" width="200" height="200" />
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-12">
                         <a href="http://www.sanor-e.com/">
-                            <img src="~/IMAGES/logo-doitac/sanore-logo.png" width="350" height="200" />
+                            <img src="~/IMAGES/logo-doitac/sanore-logo.png" class="sanore" height="200" />
                         </a>
                     </div>
 
-
-
                 </div>
+
 
 
             </div>
@@ -297,34 +294,73 @@
 
         <div class="container body-content">
             <div class="page-header header-mathang">
-                <h1>
+                <h2>
                     Mẫu khuôn
-                    <small id="smalltest">@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 1 }, new { @class = "btn btn-success" })</small>
-                </h1>
+                    <span id="smalltest">@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 1 }, new { @class = "btn btn-success" })</span>
+                </h2>
             </div>
             <div class="row">
 
-                @foreach (var item in Model)
+                @foreach (var item in Model.Where(w=>w.ID_LOAIHANG == 1).Take(3))
                 {
                     if (item.ID_LOAIHANG == 1)
                     {
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="thumbnail">
-                                <div>
+                                <div class="row">
+                                    <div class="col-md-12">
 
-                                    <p class="text-center">
-                                        @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
-                                    </p>
+                                        <p class="text-center" style="font-size: large;">
+                                            @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
+                                        </p>
+
+                                    </div>
+                                    <hr />
+                                    <div class="col-md-12 margin-bottom-10px">
+                                        <img class="img-round center-block product-image" data-original="#" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; border-radius: 0; margin-left: -4px;margin-top: -20px">
+                                    </div>
+
+
+                                    <div class="col-md-12 margin-bottom-10px">
+                                        <div class="col-md-4">
+                                            <i class="fa fa-arrows-h" aria-hidden="true"><span class="padding-left-8px">300mm</span></i>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <i class="fa fa-arrows-v" aria-hidden="true"><span class="padding-left-8px">200mm</span></i>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <i class="fa fa-balance-scale" aria-hidden="true"><span class="padding-left-8px">2kg</span></i>
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    <div class="col-md-12 margin-bottom-10px">
+                                        <div class="col-md-4">
+                                            <i class="fa fa-calendar" aria-hidden="true"><span class="padding-left-8px">@item.NGAYNHAP.Value.ToString("dd/MM/yyyy")</span></i>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <i class="fa fa-diamond"><span class="padding-left-8px">Inox</span></i>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <i class="fa fa-money"><span class="padding-left-8px">5.000.000</span></i>
+                                        </div>
+
+
+                                    </div>
+                                    @*<div class="col-md-12 btn btn-primary btn-lg btn-block">
+                                            <div class="caption">
+                                                @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new {Id = item.ID}, new {@class = "btn btn-primary btn-lg btn-block"})
+                                            </div>
+                                        </div>*@
                                 </div>
+                                @*@Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })*@
 
-                                <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; width: 320px; height: 240px;">
-                                <div class="caption">
-                                    <p>
 
-                                        @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })
-                                    </p>
-                                </div>
                             </div>
+                            <a href="@Url.Action("Detail_SanPham", "NguoiDung",new {id=@item.ID})" id="@item.ID" class="btn btn-primary btn-lg btn-block radius-button-detail" style="margin-top: -23px">Xem</a>
+                            <br />
+                            <br />
                         </div>
                     }
                 }
@@ -344,24 +380,24 @@
 
 
         <div class="page-header header-mathang">
-            <h1>
+            <h2>
                 Mẫu máy
-                <small>@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 2 }, new { @class = "btn btn-success" })</small>
+                <span>@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 2 }, new { @class = "btn btn-success" })</span>
 
-            </h1>
+            </h2>
         </div>
         <div class="row">
 
-            @foreach (var item in Model)
+            @foreach (var item in Model.Where(w=>w.ID_LOAIHANG == 2).Take(3))
             {
                 if (item.ID_LOAIHANG == 2)
                 {
-                    <div class="col-md-3">
+                    @*<div class="col-md-3">
                         <div class="thumbnail">
                             <div>
 
                                 <p class="text-center">
-                                    @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
+                                    @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new {Id = item.ID}, null)
                                 </p>
                             </div>
 
@@ -369,10 +405,69 @@
                             <div class="caption">
                                 <p>
 
-                                    @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })
+                                    @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new {Id = item.ID}, new {@class = "btn btn-primary btn-lg btn-block"})
                                 </p>
                             </div>
                         </div>
+                    </div>*@
+
+
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <p class="text-center" style="font-size: large;">
+                                        @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
+                                    </p>
+
+                                </div>
+                                <hr />
+                                <div class="col-md-12 margin-bottom-10px">
+                                    <img class="img-round center-block product-image" data-original="#" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; border-radius: 0; margin-left: -4px; margin-top: -20px;">
+                                </div>
+
+
+                                <div class="col-md-12 margin-bottom-10px">
+                                    <div class="col-md-4">
+                                        <i class="fa fa-arrows-h" aria-hidden="true"><span class="padding-left-8px">300mm</span></i>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <i class="fa fa-arrows-v" aria-hidden="true"><span class="padding-left-8px">200mm</span></i>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <i class="fa fa-balance-scale" aria-hidden="true"><span class="padding-left-8px">2kg</span></i>
+                                    </div>
+
+                                </div>
+                                <hr />
+                                <div class="col-md-12 margin-bottom-10px">
+                                    <div class="col-md-4">
+                                        <i class="fa fa-calendar" aria-hidden="true"><span class="padding-left-8px">@item.NGAYNHAP.Value.ToString("dd/MM/yyyy")</span></i>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <i class="fa fa-diamond"><span class="padding-left-8px">Inox</span></i>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <i class="fa fa-money"><span class="padding-left-8px">5.000.000</span></i>
+                                    </div>
+
+
+                                </div>
+                                @*<div class="col-md-12 btn btn-primary btn-lg btn-block">
+                                        <div class="caption">
+                                            @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new {Id = item.ID}, new {@class = "btn btn-primary btn-lg btn-block"})
+                                        </div>
+                                    </div>*@
+                            </div>
+                            @*@Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })*@
+
+
+                        </div>
+                        <a href="@Url.Action("Detail_SanPham", "NguoiDung",new {id=@item.ID})" id="@item.ID" class="btn btn-primary btn-lg btn-block radius-button-detail" style="margin-top: -23px">Xem</a>
+                        <br />
+                        <br />
                     </div>
                 }
             }
