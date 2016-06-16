@@ -1,0 +1,75 @@
+﻿@model IPagedList<MSON.sanpham>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Thêm", "Create_SanPham", "", new { @class = "btn btn-success" })
+    
+</p>
+
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            Mã sản phẩm
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+
+        <th>
+            Ngày nhập
+        </th>
+        <th>
+            Loại sản phẩm
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN)
+            </td>
+
+            <td>
+
+                @Html.DisplayFor(modelItem => item.NGAYNHAP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.loaihang.TENLOAI)
+            </td>
+
+
+            <td>
+
+                <img width="150" height="150" class="img-thumbnail" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" />
+
+            </td>
+
+            <td>
+                @Html.ActionLink("Chi tiết", "Detail_SanPham", new { id = item.ID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Sửa", "Edit_SanPham", new { id = item.ID }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Xóa", "Delete_SanPham", new { id = item.ID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="pagedList">
+    @Html.PagedListPager(Model, page => @Url.Action("Index", new { page }), new PagedListRenderOptions() { LinkToFirstPageFormat = "Trang đầu", LinkToLastPageFormat = "Trang cuối", LinkToNextPageFormat = "Sau", LinkToPreviousPageFormat = "Trước" })
+</div>
+
+

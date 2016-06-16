@@ -1,0 +1,57 @@
+﻿@model MSON.sanpham
+
+@{
+    ViewBag.Title = "Delete_SanPham";
+}
+
+<h2>Xóa sản phẩm</h2>
+
+<h3>Bạn có chắc muốn xóa không?</h3>
+<div>
+    <h4>sanpham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MOTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYNHAP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYNHAP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loaihang.TENLOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loaihang.TENLOAI)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Quay lại", "Index", "", new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

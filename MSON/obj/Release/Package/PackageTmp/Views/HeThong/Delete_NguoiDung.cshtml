@@ -1,0 +1,46 @@
+﻿@model MSON.nguoidung
+
+@{
+    ViewBag.Title = "Delete_NguoiDung";
+}
+
+<h2>Xóa người dùng</h2>
+
+<h3>Bạn có chắc chắn xóa không?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tendangnhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tendangnhap)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.matkhau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.matkhau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngaynhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaynhap)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+            @Html.ActionLink("Quay lại", "QuanLyNguoiDung", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

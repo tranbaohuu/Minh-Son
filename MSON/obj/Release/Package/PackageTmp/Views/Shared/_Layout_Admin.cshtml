@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Control Panel", "Index", "HeThong", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Quản lý sản phẩm", "Index", "HeThong")</li>
+                    @if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
+                    {
+                        string username = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+
+                        if (username.Equals("admin"))
+                        {
+
+                            <li>@Html.ActionLink("Quản lý người dùng", "QuanLyNguoiDung", "HeThong")</li>
+
+                            @*<ul class="nav navbar-nav pull-right ">
+                                    <li>@Html.ActionLink("Thêm người dùng", "RegisterCustomize", "HeThong")</li>
+
+                                </ul>*@
+                        }
+                    }
+                    @*<li>@Html.ActionLink("Thêm", "About", "Home")</li>
+                        <li>@Html.ActionLink("Xóa", "Contact", "Home")</li>*@
+                </ul>
+
+                @if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
+                {
+
+                    <ul class="nav navbar-nav pull-right ">
+                        <li>@Html.ActionLink("Đăng xuất", "DangXuat", "HeThong")</li>
+
+                    </ul>
+                }
+                @*@Html.Partial("_LoginPartial")*@
+
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container body-content">
+        <br />
+        <br />
+        <br />
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            //bộ lịch
+            $(".datepicker").datepicker(
+            {
+                dateFormat: "dd/mm/yy"
+            });
+
+
+            //kiểm tra radio button upload hình
+            $('input[type=checkbox][name=groundHinh]').change(function () {
+
+
+                if ($("#checkUpHinh").prop("checked")) {
+
+
+                    $("#fileUpHinh").prop("disabled", null);
+                }
+
+
+            });
+
+
+            //Lấy hình đã chọn
+
+            $(".modal-body").find("img").click(function () {
+
+
+                var fileName = $(this).prop("alt");
+
+
+                $("#tbURLHinhAnh").val(fileName);
+
+                $('#myModal').modal("hide");
+
+                $("#imgEditPreview").prop("src", "/IMAGES/" + fileName);
+            });
+
+            $("#fbLogout").click(function () {
+
+
+                FB.logout(function (response) {
+                    // Person is now logged out
+                });
+
+
+            });
+
+
+        });
+
+
+    </script>
+
+
+
+
+    <script type="text/javascript">
+        // This is called with the results from from FB.getLoginStatus().
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+            // The response object is returned with a status field that lets the
+            // app know the current login status of the person.
+            // Full docs on the response object can be found in the documentation
+            // for FB.getLoginStatus().
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                testAPI();
+            } else if (response.status === 'not_authorized') {
+                // The person is logged into Facebook, but not your app.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+            } else {
+                // The person is not logged into Facebook, so we're not sure if
+                // they are logged into this app or not.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                    'into Facebook.';
+            }
+        }
+
+        // This function is called when someone finishes with the Login
+        // Button.  See the onlogin handler attached to it in the sample
+        // code below.
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }
+
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1531357337110902',
+                cookie: true, // enable cookies to allow the server to access
+                // the session
+                xfbml: true, // parse social plugins on this page
+                version: 'v2.2' // use version 2.2
+            });
+
+            // Now that we've initialized the JavaScript SDK, we call
+            // FB.getLoginStatus().  This function gets the state of the
+            // person visiting this page and can return one of three states to
+            // the callback you provide.  They can be:
+            //
+            // 1. Logged into your app ('connected')
+            // 2. Logged into Facebook, but not your app ('not_authorized')
+            // 3. Not logged into Facebook and can't tell if they are logged into
+            //    your app or not.
+            //
+            // These three cases are handled in the callback function.
+
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+
+                if (response.name === "") {
+
+                    window.location.replace("http://www.google.com.vn");
+
+                }
+
+            });
+
+        };
+
+        // Load the SDK asynchronously
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // Here we run a very simple test of the Graph API after login is
+        // successful.  See statusChangeCallback() for when this call is made.
+        function testAPI() {
+            console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', function (response) {
+                console.log('Successful login for: ' + response.name);
+                document.getElementById('status').innerHTML =
+                    'Thanks for logging in, ' + response.name + '!';
+            });
+        }
+
+
+    </script>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+
+
+
+    <script>
+
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+
+            //alert('ID: ' + profile.getId());
+            //alert('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            //alert('Name: ' + profile.getName());
+            //alert('Image URL: ' + profile.getImageUrl());
+            //alert('Email: ' + profile.getEmail());
+
+            $("#goID").val(profile.getId());
+            $("#goName").val(profile.getName());
+            $("#goImageURL").val(profile.getImageUrl());
+            $("#goEmail").val(profile.getEmail());
+
+
+            $("#formGoogle").submit();
+
+        }
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+    </script>
+
+    @RenderSection("scripts", required: false)
+
+
+    @* javascript viết từ đây sau thư viện jquery *@
+
+
+
+</body>
+</html>

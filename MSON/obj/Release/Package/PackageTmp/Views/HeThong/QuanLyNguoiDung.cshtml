@@ -1,0 +1,56 @@
+﻿@model IPagedList<MSON.nguoidung>
+
+
+@{
+    ViewBag.Title = "QuanLyNguoiDung";
+}
+
+<h2>Người dùng</h2>
+
+<p>
+    @Html.ActionLink("Thêm", "RegisterCustomize", "", new { @class = "btn btn-success" })
+</p>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            Mã sản phẩm
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+
+        <th>
+            Ngày nhập
+        </th>
+        <th>
+            Loại sản phẩm
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tendangnhap)
+            </td>
+
+
+
+
+            <td>
+                @Html.ActionLink("Xóa", "Delete_NguoiDung", new { tendangnhap = item.tendangnhap }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="pagedList">
+    @Html.PagedListPager(Model, page => @Url.Action("QuanLyNguoiDung", new { page }), new PagedListRenderOptions() { LinkToFirstPageFormat = "Trang đầu", LinkToLastPageFormat = "Trang cuối", LinkToNextPageFormat = "Sau", LinkToPreviousPageFormat = "Trước" })
+</div>
+
+

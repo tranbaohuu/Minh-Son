@@ -1,0 +1,16 @@
+﻿@model MSON.sanpham
+
+@{
+    ViewBag.Title = "Detail_SanPham";
+}
+
+<h2>Detail_SanPham</h2>
+
+@Html.Partial("Detail_Partial", Model)
+
+<p>
+    @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-default" })
+
+
+    @Html.ActionLink("Sửa", "Edit_SanPham", new { id = Model.ID }, new { @class = "btn btn-warning" })
+</p>
