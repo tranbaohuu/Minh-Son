@@ -22,16 +22,6 @@
     <NavigationProperty Name="loaihang" Relationship="Self.FK_sanpham_loaihang" FromRole="sanpham" ToRole="loaihang" />
     <Property Name="IMG_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <Association Name="FK_sanpham_loaihang">
     <End Role="loaihang" Type="Self.loaihang" Multiplicity="0..1" />
     <End Role="sanpham" Type="Self.sanpham" Multiplicity="*" />
@@ -47,10 +37,18 @@
   <EntityContainer Name="minhsondbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="loaihangs" EntityType="Self.loaihang" />
     <EntitySet Name="sanphams" EntityType="Self.sanpham" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <AssociationSet Name="FK_sanpham_loaihang" Association="Self.FK_sanpham_loaihang">
       <End Role="loaihang" EntitySet="loaihangs" />
       <End Role="sanpham" EntitySet="sanphams" />
     </AssociationSet>
+    <EntitySet Name="nguoidungs" EntityType="minhsondbModel.nguoidung" />
   </EntityContainer>
+  <EntityType Name="nguoidung">
+    <Key>
+      <PropertyRef Name="tendangnhap" />
+    </Key>
+    <Property Name="tendangnhap" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="matkhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ngaynhap" Type="DateTime" Precision="0" />
+  </EntityType>
 </Schema>

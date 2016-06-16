@@ -1,0 +1,18 @@
+﻿@model MSON.sanpham
+@*@model Tuple<sanpham, List<loaihang>>*@
+
+@{
+    ViewBag.Title = "Detail_SanPham";
+}
+
+<div class="page-header header-mathang">
+    <h1>
+        Chi tiết
+    </h1>
+</div>
+
+@Html.Partial("Detail_Partial", Model)
+
+<p>
+    @Html.ActionLink("Quay lại", "SanPham", "NguoiDung", new { @class = "btn btn-default" })
+</p>

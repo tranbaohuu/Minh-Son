@@ -1,0 +1,86 @@
+﻿@model MSON.nguoidung
+
+@{
+    ViewBag.Title = "LoginCustomize";
+}
+
+<h2>Trang đăng nhập</h2>
+
+
+
+<meta name="google-signin-client_id" content="637420996107-4j1t5o137pn8i3no5rjerobkss21oo1p.apps.googleusercontent.com">
+
+<div class="fb-like"
+     data-share="true"
+     data-width="450"
+     data-show-faces="true">
+</div>
+
+
+<button id="fbLogout" class="btn btn-danger">Logout Facebook</button>
+
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+<a href="#" onclick="signOut();">Sign out</a>
+
+
+
+@using (Html.BeginForm(null, null, FormMethod.Get, new {id = "formGoogle"})) //phải có đoạn enctype thì kiểu hình ảnh mới nhận
+{
+    <input type="text" id="goID"/>
+    <input type="text" id="goName"/>
+    <input type="text" id="goEmail"/>
+    <input type="text" id="goImageURL" />
+}
+
+
+
+
+
+
+@using (Html.BeginForm("LoginCustomize", "HeThong", FormMethod.Post)) //phải có đoạn enctype thì kiểu hình ảnh mới nhận
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.tendangnhap, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tendangnhap, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.tendangnhap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.matkhau, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.matkhau, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.matkhau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đăng nhập" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+

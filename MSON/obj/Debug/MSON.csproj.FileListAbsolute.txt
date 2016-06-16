@@ -174,4 +174,3 @@ C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\obj\Debu
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\obj\Debug\MSON.pdb
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Newtonsoft.Json.dll
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Newtonsoft.Json.xml
-C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\obj\Debug\MSON.csprojResolveAssemblyReference.cache
