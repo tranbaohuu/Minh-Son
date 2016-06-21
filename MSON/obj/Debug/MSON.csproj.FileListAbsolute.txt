@@ -174,7 +174,6 @@ C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\obj\Debu
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\obj\Debug\MSON.pdb
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Newtonsoft.Json.dll
 C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Newtonsoft.Json.xml
-C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\obj\Debug\MSON.csprojResolveAssemblyReference.cache
 C:\Users\GV\Source\Repos\Minh-Son\MSON\bin\MSON.dll.config
 C:\Users\GV\Source\Repos\Minh-Son\MSON\bin\MSON.dll
 C:\Users\GV\Source\Repos\Minh-Son\MSON\bin\MSON.pdb
@@ -245,3 +244,24 @@ C:\Users\GV\Source\Repos\Minh-Son\MSON\bin\Microsoft.AI.ServerTelemetryChannel.x
 C:\Users\GV\Source\Repos\Minh-Son\MSON\bin\Microsoft.AI.Web.xml
 C:\Users\GV\Source\Repos\Minh-Son\MSON\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\GV\Source\Repos\Minh-Son\MSON\bin\Microsoft.ApplicationInsights.xml
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\ApplicationInsights.config
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Microsoft.AI.Web.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Microsoft.ApplicationInsights.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Microsoft.AI.Web.xml
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Microsoft.ApplicationInsights.xml
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Glimpse.Ado.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Glimpse.AspNet.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Glimpse.Core.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Glimpse.EF6.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\Glimpse.Mvc5.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\log4net.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\bin\log4net.xml
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSON\obj\Debug\MSON.csprojResolveAssemblyReference.cache

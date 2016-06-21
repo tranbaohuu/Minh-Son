@@ -3,29 +3,14 @@
 @*@model Tuple<List<sanpham>, List<loaihang>>*@
 
 @{
-    Layout = null;
+    //Layout = null;
 
 
     ViewBag.Title = "Trang chủ";
     int i = 0;
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link rel="Shortcut Icon" href="../../IMAGES/logo.png" type="image/x-icon" />
-    <link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,vietnamese' rel='stylesheet' type='text/css' />
-
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
-
-
-</head>
-<body>
+<div class="container body-content">
     <nav class="navbar navbar-default navbar-fixed-top normal" role="navigation">
         <div class="container">
 
@@ -67,8 +52,7 @@
 
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "TuyenDung" ? "active" : "")"><a href="@Url.Action("Index", "NguoiDung")"><i class="fa fa-user-plus fa-lg"></i>&nbsp;Tuyển dụng</a></li>
                 </ul>
-                @{
-                    string action = ViewContext.RouteData.Values["action"].ToString();
+                @{string action = ViewContext.RouteData.Values["action"].ToString();
 
                     if (action == "SanPham")
                     {
@@ -107,311 +91,767 @@
 
         </div>
     </nav>
-
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
-
-    <div class="container body-content">
-        <div class="jumbotron" style="background-color: #fafafa; ">
-            <h1>Lời chào từ Minh Sơn</h1>
-            <p>Thành lập từ năm 2003 đến nay sau hơn 12 năm kinh nghiệm chúng tôi tự tin với khả năng của mình có thể gia công và chế tạo ra những sản phẩm tốt với giá cả hợp lý nhất đến cho khách hàng.</p>
-            @*<p>
-                    <a class="btn btn-primary btn-lg" role="button">
-                        Chi tiết
-                    </a>
-                </p>*@
-        </div>
-
-    </div>
-    <div class="parallax-window full-width-div" data-parallax="scroll" style="width: 100%" data-image-src="/IMAGES/parallax-engine.jpg"></div>
-
-    <br />
-    <br />
-    <br />
-    <div class="container body-content">
-
-        <div class="jumbotron" style="background-color: #fafafa;">
-
-            <div class="row">
-
-                <div class="col-md-4">
-                    <div style="text-align: center;">
-                        <i class="fa fa-users fa-5x" style="color: #0e1752;"></i>
-                        <p>Con người</p>
-                        <p style="text-align: left; font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Với đội ngũ trên 30 thợ lành nghề trong số đó cao nhất có trên 10 năm kinh nghiệm, luôn luôn không ngừng nâng cao tay nghề, học hỏi để luôn thích ứng được với sự thay đổi của yêu cầu công việc.</p>
-                    </div>
-
-
-
-                </div>
-
-                <div class="col-md-4">
-                    <div style="text-align: center;">
-                        <i class="fa fa-plug fa-5x" style="color: #ff0c3e;"></i>
-                        <p>Máy móc</p>
-                        <p style="text-align: left; font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Được đầu tư các loại máy tiện, phay CNC và mới đây là máy cắt Lassert. Có thể đáp ứng từng tiêu chí đề ra cho từng sản phẩm.</p>
-                    </div>
-
-
-
-                </div>
-
-                <div class="col-md-4">
-                    <div style="text-align: center;">
-                        <i class="fa fa-eye fa-5x" style="color: #00a9ff;"></i>
-                        <p>Sứ mệnh</p>
-
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-    <div class="parallax-window" data-parallax="scroll" data-image-src="/IMAGES/parralax-escalator.jpg"></div>
-    <br />
-    <br />
-    <br />
-    <div class="container body-content">
-
-        <div class="jumbotron" style="background-color: #fafafa; ">
-            <div class="row">
-
-                <div class="col-md-12 col-sm-12">
-                    <div style="text-align: center;">
-                        <i class="fa fa-briefcase fa-5x" style="color: #0e1752;"></i>
-                        <p>Đối tác</p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-12">
-                    <div class="col-md-4 col-sm-12">
-                        <a href="http://www.taekwang.co.kr/">
-                            <img src="~/IMAGES/logo-doitac/taekwang-logo.png" width="200" height="200" />
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a href="http://www.pouchen.com/index.php/en/">
-                            <img src="~/IMAGES/logo-doitac/puchen-logo.png" width="200" height="200" />
-                        </a>
-                    </div>
-
-                    <div class="col-md-4 col-sm-12">
-                        <a href="https://www.facebook.com/pages/Changshin-Vietnam-CoLTD/444869092253076">
-                            <img src="~/IMAGES/logo-doitac/changsin-logo.png" class="changsin" style="margin-top: 30px;" height="150" />
-                        </a>
-                    </div>
-                </div>
-
-
-                <div class="col-md-12">
-
-                    <div class="col-md-4 col-sm-12">
-                        <a href="http://www.cropscience.bayer.com.vn/">
-                            <img src="~/IMAGES/logo-doitac/bayer-logo.png" width="170" height="170" />
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a href="https://www.toshiba.com.vn/">
-                            <img src="~/IMAGES/logo-doitac/toshiba-logo.png" width="200" height="200" />
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a href="http://www.sanor-e.com/">
-                            <img src="~/IMAGES/logo-doitac/sanore-logo.png" class="sanore" height="200" />
-                        </a>
-                    </div>
-
-                </div>
-
-
-
-            </div>
-
-        </div>
-
-
-
-    </div>
-
-    <div class="parallax-window" data-parallax="scroll" data-image-src="/IMAGES/parallax-air.jpg"></div>
-    <br />
-    <br />
-    <br />
-    <div class="container body-content">
-
-        <div class="jumbotron" style="background-color: #fafafa;">
-            <div class="row">
-
-                <div class="col-md-12">
-                    <div style="text-align: center;">
-                        <i class="fa fa-star fa-5x" style="color: #F8D808;"></i>
-                        <p>Sản phẩm tiêu biểu</p>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="flexslider">
-            <ul class="slides">
-
-
-                @foreach (var item in Model)
-                {
-
-                    <li>
-
-                        <a href="@Url.Action("Detail_SanPham", "NguoiDung", new {id = item.ID})"><img class="" src="~/IMAGES/@Html.DisplayFor(model => item.IMG_URL)" /></a>
-                        <p class="flex-caption">@Html.DisplayFor(itemModel => item.TEN)</p>
-                    </li>
-                    i++;
-                    if (i == 5)
-                    {
-                        break;
-                    }
-                }
-            </ul>
-        </div>
-
-        <br />
-        <br />
-        <br />
-
-        <div class="container body-content">
-            <div class="page-header header-mathang">
-                <h2>
-                    Mẫu khuôn
-                    <span id="smalltest">@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 1 }, new { @class = "btn btn-success" })</span>
-                </h2>
-            </div>
-            <div class="row">
-
-                @foreach (var item in Model.Where(w=>w.ID_LOAIHANG == 1).Take(3))
-                {
-                    if (item.ID_LOAIHANG == 1)
-                    {
-                        <div class="col-md-4">
-                            <div class="thumbnail">
-                                <div class="row">
-                                    <div class="col-md-12">
-
-                                        <p class="text-center" style="font-size: large;">
-                                            @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
-                                        </p>
-
-                                    </div>
-                                    @*<hr />*@
-                                    <div class="col-md-12 margin-bottom-10px">
-                                        <img class="img-round center-block product-image" data-original="#" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; border-radius: 0; margin-left: -4px;margin-top: -20px">
-                                    </div>
-
-
-                                    <div class="col-md-12 margin-bottom-10px">
-                                        <div class="col-md-4">
-                                            <i class="fa fa-arrows-h" aria-hidden="true"><span class="padding-left-8px">300mm</span></i>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <i class="fa fa-arrows-v" aria-hidden="true"><span class="padding-left-8px">200mm</span></i>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <i class="fa fa-balance-scale" aria-hidden="true"><span class="padding-left-8px">2kg</span></i>
-                                        </div>
-
-                                    </div>
-                                    <hr />
-                                    <div class="col-md-12 margin-bottom-10px">
-                                        <div class="col-md-4">
-                                            <i class="fa fa-calendar" aria-hidden="true"><span class="padding-left-8px">@item.NGAYNHAP.Value.ToString("dd/MM/yyyy")</span></i>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <i class="fa fa-diamond"><span class="padding-left-8px">Inox</span></i>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <i class="fa fa-money"><span class="padding-left-8px">5.000.000</span></i>
-                                        </div>
-
-
-                                    </div>
-                                    @*<div class="col-md-12 btn btn-primary btn-lg btn-block">
-                                            <div class="caption">
-                                                @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new {Id = item.ID}, new {@class = "btn btn-primary btn-lg btn-block"})
-                                            </div>
-                                        </div>*@
-                                </div>
-                                @*@Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })*@
-
-
-                            </div>
-                            <a href="@Url.Action("Detail_SanPham", "NguoiDung",new {id=@item.ID})" id="@item.ID" class="btn btn-primary btn-lg btn-block radius-button-detail" style="margin-top: -23px">Xem</a>
-                            <br />
-                            <br />
+</div>
+
+<!-- SLIDER EXAMPLE -->
+<section class="example">
+    <article class="content">
+        <div id="rev_slider_2_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="classic-carousel2" style="margin:0px auto;background-color:#ffffff;padding:0px;margin-top:0px;margin-bottom:0px;">
+
+            <!-- START REVOLUTION SLIDER 5.0.7 fullwidth mode -->
+            <div id="rev_slider_2_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
+                <ul>
+                    <!-- SLIDE  -->
+                    <li data-index="rs-6" data-transition="zoomout" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-thumb="../../assets/images/datcolor-60x60.jpg" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" data-title="Intro" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="../../assets/images/datcolor.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                        <!-- LAYERS -->
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0"
+                             id="slide-6-layer-1"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                             data-fontsize="['70','70','70','45']"
+                             data-lineheight="['70','70','70','50']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_out="x:inherit;y:inherit;"
+                             data-start="1000"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 5; white-space: nowrap;">
+                            I'M OLDSCHOOL
                         </div>
-                    }
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0"
+                             id="slide-6-layer-4"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+                             data-start="1500"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 6; white-space: nowrap;">
+                            BUT STILL QUITE COOL.
+                        </div>
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0"
+                             id="slide-6-layer-8"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['-68','-68','-68','-68']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-style_hover="cursor:default;"
+                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+                             data-start="2000"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 7; white-space: nowrap;">
+                            <i class="pe-7s-refresh"></i>
+                        </div>
+                    </li>
+                    <!-- SLIDE  -->
+                    <li data-index="rs-7" data-transition="fadetotopfadefrombottom" data-slotamount="default" data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1500" data-thumb="../../assets/images/touchit-60x60.jpg" data-rotate="0" data-saveperformance="off" data-title="Parallax" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="../../assets/images/touchit.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                        <!-- LAYERS -->
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-3"
+                             id="slide-7-layer-1"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                             data-fontsize="['70','70','70','45']"
+                             data-lineheight="['70','70','70','50']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:1.5;sY:1.5;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:0px;"
+                             data-mask_out="x:inherit;y:inherit;"
+                             data-start="1000"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 5; white-space: nowrap;">
+                            MOUSE PARALLAX
+                        </div>
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-2"
+                             id="slide-7-layer-4"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+                             data-start="1500"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 6; white-space: nowrap;">
+                            AIN'T THAT NICE?
+                        </div>
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-1"
+                             id="slide-7-layer-8"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['-68','-68','-68','-68']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-style_hover="cursor:default;"
+                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+                             data-start="2000"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 7; white-space: nowrap;">
+                            <i class="pe-7s-mouse"></i>
+                        </div>
+                        <!-- LAYER NR. 4 -->
+                        <div class="tp-caption   tp-resizeme rs-parallaxlevel-8"
+                             id="slide-7-layer-10"
+                             data-x="['left','left','left','left']" data-hoffset="['680','680','680','680']"
+                             data-y="['top','top','top','top']" data-voffset="['632','632','632','632']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="opacity:0;s:1000;e:Power2.easeInOut;"
+                             data-transform_out="opacity:0;s:1000;s:1000;"
+                             data-start="2000"
+                             data-responsive_offset="on"
+                             style="z-index: 8;">
+                            <div class="rs-looped rs-pendulum" data-easing="linearEaseNone" data-startdeg="-20" data-enddeg="360" data-speed="35" data-origin="50% 50%">
+                                <img src="../../assets/images/blurflake4.png" alt="" width="240" height="240" data-ww="['240px','240px','240px','240px']" data-hh="['240px','240px','240px','240px']" data-no-retina>
+                            </div>
+                        </div>
+                        <!-- LAYER NR. 5 -->
+                        <div class="tp-caption   tp-resizeme rs-parallaxlevel-7"
+                             id="slide-7-layer-11"
+                             data-x="['left','left','left','left']" data-hoffset="['948','948','948','948']"
+                             data-y="['top','top','top','top']" data-voffset="['487','487','487','487']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="opacity:0;s:1000;e:Power2.easeInOut;"
+                             data-transform_out="opacity:0;s:1000;s:1000;"
+                             data-start="2000"
+                             data-responsive_offset="on"
+                             style="z-index: 9;">
+                            <div class="rs-looped rs-wave" data-speed="20" data-angle="0" data-radius="50px" data-origin="50% 50%">
+                                <img src="../../assets/images/blurflake3.png" alt="" width="170" height="170" data-ww="['170px','170px','170px','170px']" data-hh="['170px','170px','170px','170px']" data-no-retina>
+                            </div>
+                        </div>
+                        <!-- LAYER NR. 6 -->
+                        <div class="tp-caption   tp-resizeme rs-parallaxlevel-4"
+                             id="slide-7-layer-12"
+                             data-x="['left','left','left','left']" data-hoffset="['719','719','719','719']"
+                             data-y="['top','top','top','top']" data-voffset="['200','200','200','200']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="opacity:0;s:1000;e:Power2.easeInOut;"
+                             data-transform_out="opacity:0;s:1000;s:1000;"
+                             data-start="2000"
+                             data-responsive_offset="on"
+                             style="z-index: 10;">
+                            <div class="rs-looped rs-rotate" data-easing="Power2.easeInOut" data-startdeg="-20" data-enddeg="360" data-speed="20" data-origin="50% 50%">
+                                <img src="../../assets/images/blurflake2.png" alt="" width="50" height="51" data-ww="['50px','50px','50px','50px']" data-hh="['51px','51px','51px','51px']" data-no-retina>
+                            </div>
+                        </div>
+                        <!-- LAYER NR. 7 -->
+                        <div class="tp-caption   tp-resizeme rs-parallaxlevel-6"
+                             id="slide-7-layer-13"
+                             data-x="['left','left','left','left']" data-hoffset="['187','187','187','187']"
+                             data-y="['top','top','top','top']" data-voffset="['216','216','216','216']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="opacity:0;s:1000;e:Power2.easeInOut;"
+                             data-transform_out="opacity:0;s:1000;s:1000;"
+                             data-start="2000"
+                             data-responsive_offset="on"
+                             style="z-index: 11;">
+                            <div class="rs-looped rs-wave" data-speed="4" data-angle="0" data-radius="10" data-origin="50% 50%">
+                                <img src="../../assets/images/blurflake1.png" alt="" width="120" height="120" data-ww="['120px','120px','120px','120px']" data-hh="['120px','120px','120px','120px']" data-no-retina>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- SLIDE  -->
+                    <li data-index="rs-8" data-transition="zoomin" data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-thumb="../../assets/images/bike-60x60.jpg" data-rotate="0" data-saveperformance="off" data-title="Ken Burns" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="../../assets/images/bike.jpg" alt="" data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                        <!-- LAYERS -->
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0"
+                             id="slide-8-layer-9"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']"
+                             data-width="500"
+                             data-height="140"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:0px;"
+                             data-mask_out="x:inherit;y:inherit;"
+                             data-start="1000"
+                             data-responsive_offset="on"
+                             style="z-index: 5;background-color:rgba(0, 0, 0, 0.75);border-color:rgba(0, 0, 0, 0.50);">
+                        </div>
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0"
+                             id="slide-8-layer-1"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                             data-fontsize="['70','70','70','45']"
+                             data-lineheight="['70','70','70','50']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:0px;"
+                             data-mask_out="x:inherit;y:inherit;"
+                             data-start="1000"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 6; white-space: nowrap;">
+                            KEN BURNS
+                        </div>
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0"
+                             id="slide-8-layer-4"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['52','51','51','31']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+                             data-start="1500"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 7; white-space: nowrap;">
+                            IN A SMOOTH WAY
+                        </div>
+                    </li>
+                    <!-- SLIDE  -->
+                    <li data-index="rs-9" data-transition="zoomout" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-thumb="../../assets/images/fitness-60x60.jpg" data-rotate="0" data-saveperformance="off" data-title="HTML5 Video" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="../../assets/images/fitness.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                        <!-- LAYERS -->
+                        <!-- BACKGROUND VIDEO LAYER -->
+                        <div class="rs-background-video-layer"
+                             data-forcerewind="on"
+                             data-volume="mute"
+                             data-videowidth="100%"
+                             data-videoheight="100%"
+                             data-videomp4="../../assets/videos/fit_edit.mp4"
+                             data-videopreload="preload"
+                             data-videoloop="loopandnoslidestop"
+                             data-forceCover="1"
+                             data-aspectratio="16:9"
+                             data-autoplay="true"
+                             data-autoplayonlyfirsttime="false"
+                             data-nextslideatend="true"></div>
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0"
+                             id="slide-9-layer-10"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                             data-width="full"
+                             data-height="full"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="opacity:0;s:2000;e:Power3.easeInOut;"
+                             data-transform_out="opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-start="2000"
+                             data-basealign="slide"
+                             data-responsive_offset="on"
+                             data-responsive="off"
+                             style="z-index: 5;background-color:rgba(0, 0, 0, 0.25);border-color:rgba(0, 0, 0, 0);">
+                        </div>
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0"
+                             id="slide-9-layer-1"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                             data-fontsize="['70','70','70','45']"
+                             data-lineheight="['70','70','70','50']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="z:0;rX:0;rY:0;rZ:5deg;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+                             data-start="1000"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 6; white-space: nowrap;">
+                            HTML5 VIDEO
+                        </div>
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0"
+                             id="slide-9-layer-4"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+                             data-start="1500"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 7; white-space: nowrap;">
+                            AND LOTS OF OTHER MEDIA
+                        </div>
+                        <!-- LAYER NR. 4 -->
+                        <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0"
+                             id="slide-9-layer-8"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['-68','-68','-68','-68']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-style_hover="cursor:default;"
+                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+                             data-start="2000"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 8; white-space: nowrap;">
+                            <i class="pe-7s-ball"></i>
+                        </div>
+                    </li>
+                    <!-- SLIDE  -->
+                    <li data-index="rs-10" data-transition="zoomin" data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-thumb="../../assets/images/lambo-60x60.jpg" data-rotate="0" data-saveperformance="off" data-title="Love it?" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="../../assets/images/lambo.jpg" alt="" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 -500" data-offsetend="0 500" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                        <!-- LAYERS -->
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0"
+                             id="slide-10-layer-1"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                             data-fontsize="['70','70','70','45']"
+                             data-lineheight="['70','70','70','50']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power2.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:[100%];"
+                             data-mask_out="x:inherit;y:inherit;"
+                             data-start="1000"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 5; white-space: nowrap;padding:10px 20px 10px 20px;text-shadow:5px 5px 20px rgba(0,0,0,0.5);">
+                            LOVE IT?
+                        </div>
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0"
+                             id="slide-10-layer-4"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+                             data-start="1500"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 6; white-space: nowrap;text-shadow:1px 2px 10px rgba(0,0,0,0.5);">
+                            GET SLIDER REVOLUTION TODAY
+                        </div>
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0"
+                             id="slide-10-layer-8"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['-68','-68','-68','-68']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-transform_idle="o:1;"
+                             data-style_hover="cursor:default;"
+                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;"
+                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                             data-mask_in="x:0px;y:[100%];"
+                             data-mask_out="x:inherit;y:inherit;"
+                             data-start="2000"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+                             style="z-index: 7; white-space: nowrap;padding:10px 10px 10px 10px;text-shadow:1px 1px 10px rgba(0,0,0,0.5);">
+                            <i class="pe-7s-diamond"></i>
+                        </div>
+                    </li>
+                </ul>
+                <div class="tp-static-layers"></div>
+                <div class="tp-bannertimer" style="height: 7px; background-color: rgba(255, 255, 255, 0.25);"></div>
+            </div>
+        </div><!-- END REVOLUTION SLIDER -->
+        <script type="text/javascript">
+            var tpj = jQuery;
+
+            var revapi2;
+            tpj(document).ready(function () {
+                if (tpj("#rev_slider_2_1").revolution == undefined) {
+                    revslider_showDoubleJqueryError("#rev_slider_2_1");
+                } else {
+                    revapi2 = tpj("#rev_slider_2_1").show().revolution({
+                        sliderType: "carousel",
+                        jsFileLocation: "../../revolution/js/",
+                        sliderLayout: "fullwidth",
+                        dottedOverlay: "none",
+                        delay: 9000,
+                        navigation: {
+                            keyboardNavigation: "off",
+                            keyboard_direction: "horizontal",
+                            mouseScrollNavigation: "off",
+                            onHoverStop: "off",
+                            arrows: {
+                                style: "erinyen",
+                                enable: true,
+                                hide_onmobile: true,
+                                hide_under: 600,
+                                hide_onleave: true,
+                                hide_delay: 200,
+                                hide_delay_mobile: 1200,
+                                tmp: '<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div>    <div class="tp-arr-img-over"></div>	<span class="tp-arr-titleholder">{{title}}</span> </div>',
+                                left: {
+                                    h_align: "left",
+                                    v_align: "center",
+                                    h_offset: 30,
+                                    v_offset: 0
+                                },
+                                right: {
+                                    h_align: "right",
+                                    v_align: "center",
+                                    h_offset: 30,
+                                    v_offset: 0
+                                }
+                            }
+                            ,
+                            thumbnails: {
+                                style: "gyges",
+                                enable: true,
+                                width: 60,
+                                height: 60,
+                                min_width: 60,
+                                wrapper_padding: 0,
+                                wrapper_color: "transparent",
+                                wrapper_opacity: "1",
+                                tmp: '<span class="tp-thumb-img-wrap">  <span class="tp-thumb-image"></span></span>',
+                                visibleAmount: 5,
+                                hide_onmobile: true,
+                                hide_under: 800,
+                                hide_onleave: false,
+                                direction: "horizontal",
+                                span: false,
+                                position: "inner",
+                                space: 5,
+                                h_align: "center",
+                                v_align: "bottom",
+                                h_offset: 0,
+                                v_offset: 20
+                            }
+                        },
+                        carousel: {
+                            horizontal_align: "center",
+                            vertical_align: "center",
+                            fadeout: "off",
+                            maxVisibleItems: 3,
+                            infinity: "on",
+                            space: 0,
+                            stretch: "off"
+                        },
+                        viewPort: {
+                            enable: true,
+                            outof: "pause",
+                            visible_area: "80%"
+                        },
+                        responsiveLevels: [1240, 1024, 778, 480],
+                        gridwidth: [1240, 1024, 778, 480],
+                        gridheight: [600, 600, 500, 400],
+                        lazyType: "none",
+                        parallax: {
+                            type: "mouse",
+                            origo: "slidercenter",
+                            speed: 2000,
+                            levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
+                        },
+                        shadow: 5,
+                        spinner: "off",
+                        stopLoop: "off",
+                        stopAfterLoops: -1,
+                        stopAtSlide: -1,
+                        shuffle: "off",
+                        autoHeight: "off",
+                        hideThumbsOnMobile: "on",
+                        hideSliderAtLimit: 0,
+                        hideCaptionAtLimit: 0,
+                        hideAllCaptionAtLilmit: 0,
+                        debugMode: false,
+                        fallbacks: {
+                            simplifyAll: "off",
+                            nextSlideOnWindowFocus: "off",
+                            disableFocusListener: false
+                        }
+                    });
                 }
+            });	/*ready*/
+        </script>
+    </article>
+</section>
+
+
+<div class="container body-content">
+    <div class="jumbotron" style="background-color: #fafafa; ">
+        <h1>Lời chào từ Minh Sơn</h1>
+        <p>Thành lập từ năm 2003 đến nay sau hơn 12 năm kinh nghiệm chúng tôi tự tin với khả năng của mình có thể gia công và chế tạo ra những sản phẩm tốt với giá cả hợp lý nhất đến cho khách hàng.</p>
+        @*<p>
+                <a class="btn btn-primary btn-lg" role="button">
+                    Chi tiết
+                </a>
+            </p>*@
+    </div>
+
+</div>
+<div class="parallax-window full-width-div" data-parallax="scroll" style="width: 100%" data-image-src="/IMAGES/parallax-engine.jpg"></div>
+
+<br />
+<br />
+<br />
+<div class="container body-content">
+
+    <div class="jumbotron" style="background-color: #fafafa;">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <div style="text-align: center;">
+                    <i class="fa fa-users fa-5x" style="color: #0e1752;"></i>
+                    <p>Con người</p>
+                    <p style="text-align: left; font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Với đội ngũ trên 30 thợ lành nghề trong số đó cao nhất có trên 10 năm kinh nghiệm, luôn luôn không ngừng nâng cao tay nghề, học hỏi để luôn thích ứng được với sự thay đổi của yêu cầu công việc.</p>
+                </div>
+
 
 
             </div>
 
+            <div class="col-md-4">
+                <div style="text-align: center;">
+                    <i class="fa fa-plug fa-5x" style="color: #ff0c3e;"></i>
+                    <p>Máy móc</p>
+                    <p style="text-align: left; font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Được đầu tư các loại máy tiện, phay CNC và mới đây là máy cắt Lassert. Có thể đáp ứng từng tiêu chí đề ra cho từng sản phẩm.</p>
+                </div>
+
+
+
+            </div>
+
+            <div class="col-md-4">
+                <div style="text-align: center;">
+                    <i class="fa fa-eye fa-5x" style="color: #00a9ff;"></i>
+                    <p>Sứ mệnh</p>
+
+
+                </div>
+
+            </div>
+
+
         </div>
 
 
+    </div>
+
+</div>
+
+<div class="parallax-window" data-parallax="scroll" data-image-src="/IMAGES/parralax-escalator.jpg"></div>
+<br />
+<br />
+<br />
+<div class="container body-content">
+
+    <div class="jumbotron" style="background-color: #fafafa; ">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div style="text-align: center;">
+                    <i class="fa fa-briefcase fa-5x" style="color: #0e1752;"></i>
+                    <p>Đối tác</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="col-md-4 col-sm-12">
+                    <a href="http://www.taekwang.co.kr/">
+                        <img src="~/IMAGES/logo-doitac/taekwang-logo.png" width="200" height="200" />
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <a href="http://www.pouchen.com/index.php/en/">
+                        <img src="~/IMAGES/logo-doitac/puchen-logo.png" width="200" height="200" />
+                    </a>
+                </div>
+
+                <div class="col-md-4 col-sm-12">
+                    <a href="https://www.facebook.com/pages/Changshin-Vietnam-CoLTD/444869092253076">
+                        <img src="~/IMAGES/logo-doitac/changsin-logo.png" class="changsin" style="margin-top: 30px;" height="150" />
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+
+                <div class="col-md-4 col-sm-12">
+                    <a href="http://www.cropscience.bayer.com.vn/">
+                        <img src="~/IMAGES/logo-doitac/bayer-logo.png" width="170" height="170" />
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <a href="https://www.toshiba.com.vn/">
+                        <img src="~/IMAGES/logo-doitac/toshiba-logo.png" width="200" height="200" />
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <a href="http://www.sanor-e.com/">
+                        <img src="~/IMAGES/logo-doitac/sanore-logo.png" class="sanore" height="200" />
+                    </a>
+                </div>
+
+            </div>
 
 
 
+        </div>
+
+    </div>
 
 
 
+</div>
+
+<div class="parallax-window" data-parallax="scroll" data-image-src="/IMAGES/parallax-air.jpg"></div>
+<br />
+<br />
+<br />
+<div class="container body-content">
+
+    <div class="jumbotron" style="background-color: #fafafa;">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div style="text-align: center;">
+                    <i class="fa fa-star fa-5x" style="color: #F8D808;"></i>
+                    <p>Sản phẩm tiêu biểu</p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="flexslider">
+        <ul class="slides">
 
 
+            @foreach (var item in Model)
+            {
+
+                <li>
+
+                    <a href="@Url.Action("Detail_SanPham", "NguoiDung", new {id = item.ID})"><img class="" src="~/IMAGES/@Html.DisplayFor(model => item.IMG_URL)" /></a>
+                    <p class="flex-caption">@Html.DisplayFor(itemModel => item.TEN)</p>
+                </li>i++;
+                if (i == 5)
+                {
+                    break;
+                }
+            }
+        </ul>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <div class="container body-content">
         <div class="page-header header-mathang">
             <h2>
-                Mẫu máy
-                <span>@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 2 }, new { @class = "btn btn-success" })</span>
-
+                Mẫu khuôn
+                <span id="smalltest">@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 1 }, new { @class = "btn btn-success" })</span>
             </h2>
         </div>
         <div class="row">
 
-            @foreach (var item in Model.Where(w=>w.ID_LOAIHANG == 2).Take(3))
+            @foreach (var item in Model.Where(w => w.ID_LOAIHANG == 1).Take(3))
             {
-                if (item.ID_LOAIHANG == 2)
+                if (item.ID_LOAIHANG == 1)
                 {
-                    @*<div class="col-md-3">
-                        <div class="thumbnail">
-                            <div>
-
-                                <p class="text-center">
-                                    @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new {Id = item.ID}, null)
-                                </p>
-                            </div>
-
-                            <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; width: 320px; height: 240px;">
-                            <div class="caption">
-                                <p>
-
-                                    @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new {Id = item.ID}, new {@class = "btn btn-primary btn-lg btn-block"})
-                                </p>
-                            </div>
-                        </div>
-                    </div>*@
-
-
                     <div class="col-md-4">
                         <div class="thumbnail">
                             <div class="row">
@@ -424,7 +864,7 @@
                                 </div>
                                 @*<hr />*@
                                 <div class="col-md-12 margin-bottom-10px">
-                                    <img class="img-round center-block product-image" data-original="#" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; border-radius: 0; margin-left: -4px; margin-top: -20px;">
+                                    <img class="img-round center-block product-image" data-original="#" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; border-radius: 0; margin-left: -4px;">
                                 </div>
 
 
@@ -473,8 +913,6 @@
             }
 
 
-
-
         </div>
 
     </div>
@@ -485,7 +923,115 @@
 
 
 
-    <footer class="footer" style="background-color: #333333; width: 100%; height: 100%; color: white; bottom: 0; left: 0;">
+
+
+
+    <div class="page-header header-mathang">
+        <h2>
+            Mẫu máy
+            <span>@Html.ActionLink("Xem thêm", "SanPham", "NguoiDung", new { id = 2 }, new { @class = "btn btn-success" })</span>
+
+        </h2>
+    </div>
+    <div class="row">
+
+        @foreach (var item in Model.Where(w => w.ID_LOAIHANG == 2).Take(3))
+        {
+            if (item.ID_LOAIHANG == 2)
+            {
+                @*<div class="col-md-3">
+                        <div class="thumbnail">
+                            <div>
+
+                                <p class="text-center">
+                                    @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new {Id = item.ID}, null)
+                                </p>
+                            </div>
+
+                            <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; width: 320px; height: 240px;">
+                            <div class="caption">
+                                <p>
+
+                                    @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new {Id = item.ID}, new {@class = "btn btn-primary btn-lg btn-block"})
+                                </p>
+                            </div>
+                        </div>
+                    </div>*@
+
+
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <p class="text-center" style="font-size: large;">
+                                    @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
+                                </p>
+
+                            </div>
+                            @*<hr />*@
+                            <div class="col-md-12 margin-bottom-10px">
+                                <img class="img-round center-block product-image" data-original="#" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; border-radius: 0; margin-left: -4px;">
+                            </div>
+
+
+                            <div class="col-md-12 margin-bottom-10px">
+                                <div class="col-md-4">
+                                    <i class="fa fa-arrows-h" aria-hidden="true"><span class="padding-left-8px">300mm</span></i>
+                                </div>
+                                <div class="col-md-4">
+                                    <i class="fa fa-arrows-v" aria-hidden="true"><span class="padding-left-8px">200mm</span></i>
+                                </div>
+                                <div class="col-md-4">
+                                    <i class="fa fa-balance-scale" aria-hidden="true"><span class="padding-left-8px">2kg</span></i>
+                                </div>
+
+                            </div>
+                            <hr />
+                            <div class="col-md-12 margin-bottom-10px">
+                                <div class="col-md-4">
+                                    <i class="fa fa-calendar" aria-hidden="true"><span class="padding-left-8px">@item.NGAYNHAP.Value.ToString("dd/MM/yyyy")</span></i>
+                                </div>
+                                <div class="col-md-4">
+                                    <i class="fa fa-diamond"><span class="padding-left-8px">Inox</span></i>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <i class="fa fa-money"><span class="padding-left-8px">5.000.000</span></i>
+                                </div>
+
+
+                            </div>
+                            @*<div class="col-md-12 btn btn-primary btn-lg btn-block">
+                                    <div class="caption">
+                                        @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new {Id = item.ID}, new {@class = "btn btn-primary btn-lg btn-block"})
+                                    </div>
+                                </div>*@
+                        </div>
+                        @*@Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })*@
+
+
+                    </div>
+                    <a href="@Url.Action("Detail_SanPham", "NguoiDung",new {id=@item.ID})" id="@item.ID" class="btn btn-primary btn-lg btn-block radius-button-detail" style="margin-top: -23px">Xem</a>
+                    <br />
+                    <br />
+                </div>}
+        }
+
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+@*<footer class="footer" style="background-color: #333333; width: 100%; height: 100%; color: white; bottom: 0; left: 0;">
         <div class="container">
             <br />
             <p class="text-muted" style="color: white;">Công ty TNHH-MTV Cơ khí chế tạo Minh Sơn - MST: 3602477324 - Địa chỉ: 20A/4 phường Tam Hòa, Biên Hòa, Đồng Nai</p>
@@ -499,62 +1045,62 @@
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/parallax")
     @Scripts.Render("~/bundles/flexslider")
-    @Scripts.Render("~/bundles/unslider")
+    @Scripts.Render("~/bundles/unslider")*@
 
 
 
-    @*@Scripts.Render("~/bundles/magnify")*@
+@*@Scripts.Render("~/bundles/magnify")*@
 
 
 
-    <script type="text/javascript">
-        $(document).ready(function () {
+@*<script type="text/javascript">
+    $(document).ready(function () {
 
 
 
-            //của slideshow
-            $('.flexslider').flexslider({
-                animation: "slide",
-                slideshow: true,
-                thumbCaptions: true
-            });
-
-            var unslider = $('.banner').unslider();
-
-            $('.unslider-arrow').click(function () {
-                var fn = this.className.split(' ')[1];
-
-                //  Either do unslider.data('unslider').next() or .prev() depending on the className
-                unslider.data('unslider')[fn]();
-            });
-
-            //Menu tự co vào khi scroll
-            $(window).scroll(function () {
-                if ($(document).scrollTop() > 50) {
-                    $('nav').addClass('shrink');
-                    $('#formSearch').addClass('shrink');
-                } else {
-                    $('nav').removeClass('shrink');
-                    $('#formSearch').removeClass('shrink');
-                }
-            });
-
+        //của slideshow
+        $('.flexslider').flexslider({
+            animation: "slide",
+            slideshow: true,
+            thumbCaptions: true
         });
 
+        var unslider = $('.banner').unslider();
 
-        //Code tô màu vị trí trang đang đứng trên thanh menu bar
-        //$(".navbar-collapse li").click(function () {
+        $('.unslider-arrow').click(function () {
+            var fn = this.className.split(' ')[1];
+
+            //  Either do unslider.data('unslider').next() or .prev() depending on the className
+            unslider.data('unslider')[fn]();
+        });
+
+        //Menu tự co vào khi scroll
+        $(window).scroll(function () {
+            if ($(document).scrollTop() > 50) {
+                $('nav').addClass('shrink');
+                $('#formSearch').addClass('shrink');
+            } else {
+                $('nav').removeClass('shrink');
+                $('#formSearch').removeClass('shrink');
+            }
+        });
+
+    });*@
 
 
-        //    $(this).addClass("active");
+@*//Code tô màu vị trí trang đang đứng trên thanh menu bar
+    //$(".navbar-collapse li").click(function () {
 
 
-        //});
+    //    $(this).addClass("active");
 
 
-    </script>
+    //});*@
+
+
+@*</script>*@
 
 
 
-</body>
-</html>
+@*</body>
+    </html>*@

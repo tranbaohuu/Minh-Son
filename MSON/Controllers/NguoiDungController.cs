@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using log4net;
 using PagedList;
 
 namespace MSON.Controllers
@@ -13,14 +14,14 @@ namespace MSON.Controllers
     {
 
         private minhsondbEntities ett = new minhsondbEntities();
+        private static readonly ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         // GET: NguoiDung
 
         //[OutputCache(Duration = 60)]
         public ActionResult Index()
         {
 
-
-
+    
             var listLoaiHang = ett.loaihangs.Select(l => l).ToList();
 
 

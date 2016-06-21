@@ -9,10 +9,34 @@
     <link rel="Shortcut Icon" href="../../IMAGES/logo.png" type="image/x-icon" />
     <link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,vietnamese' rel='stylesheet' type='text/css' />
 
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 
+
+    <!-- RS5.0 Main Stylesheet -->
+    <link href="~/Content/revolution/settings.css" rel="stylesheet" />
+    <!-- RS5.0 Layers and Navigation Styles -->
+    <link href="~/Content/revolution/layers.css" rel="stylesheet"/>
+    <link href="~/Content/revolution/navigation.css" rel="stylesheet"/>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/flexslider")
+    @Scripts.Render("~/bundles/unslider")
+    @Scripts.Render("~/bundles/less")
+    @Scripts.Render("~/bundles/unobtrusive-ajax")
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Scripts.Render("~/bundles/parallax")
+
+
+    <script src="~/Scripts/revolution/jquery.themepunch.tools.min.js"></script>
+    <script src="~/Scripts/revolution/jquery.themepunch.revolution.min.js"></script>
 
 </head>
 <body>
@@ -117,16 +141,11 @@
         </div>
     </nav>
 
-    <div class="container body-content" id="divBaoBocBody">
-        <br />
-        <br />
-        <br />
+      
         @RenderBody()
 
 
 
-
-    </div>
 
 
 
@@ -140,17 +159,8 @@
         </div>
     </footer>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/flexslider")
-    @Scripts.Render("~/bundles/unslider")
-    @Scripts.Render("~/bundles/less")
-    @Scripts.Render("~/bundles/unobtrusive-ajax")
-    @Scripts.Render("~/bundles/bootstrap-select")
-    @Scripts.Render("~/bundles/parallax")
-    @*@Scripts.Render("~/bundles/angular")*@
+
+@*@Scripts.Render("~/bundles/angular")*@
 
 
 

@@ -5,78 +5,79 @@
     ViewBag.Title = "Sản phẩm";
 }
 
+<div class="container body-content">
+    <div class="page-header header-mathang">
+        <h1>
+            Sản phẩm
+        </h1>
 
-<div class="page-header header-mathang">
-    <h1 ng->
-        Sản phẩm
-    </h1>
+    </div>
 
-</div>
+    @*<div class="form-group">
+            <label>Loại sản phẩm: </label>
+            <select class="selectpicker" data-live-search="true">
+             @foreach (var loai in @ViewBag.LoaiSanPham)
+             {
+                 <option>@loai.TENLOAI</option>
+             }
+            </select>
 
-@*<div class="form-group">
-        <label>Loại sản phẩm: </label>
-        <select class="selectpicker" data-live-search="true">
-         @foreach (var loai in @ViewBag.LoaiSanPham)
-         {
-             <option>@loai.TENLOAI</option>
-         }
-        </select>
-
-    </div>*@
-
-
-<div class="form-group">
-    <label>Loại sản phẩm: </label> &nbsp;
-    @Html.DropDownList("Loai", ViewBag.LoaiSanPham as List<SelectListItem>, new { @class = "selectpicker", @id = "dropListLoaiSP" })
-</div>
-<br />
-<br />
-
-@*@using (Ajax.BeginForm("SanPham","NguoiDung",new AjaxOptions
-                    {
-                        HttpMethod = "post",
-                        InsertionMode = InsertionMode.Replace,
-                        UpdateTargetId = "zoneUpdateAjax",
+        </div>*@
 
 
+    <div class="form-group">
+        <label>Loại sản phẩm: </label> &nbsp;
+        @Html.DropDownList("Loai", ViewBag.LoaiSanPham as List<SelectListItem>, new { @class = "selectpicker", @id = "dropListLoaiSP" })
+    </div>
 
-                    }))
-    {
-        <input type="text" class="form-control" name="id" placeholder="Thông tin">
-        <button type="submit" class="btn btn-default">Tìm</button>
-    }*@
 
-@Html.Partial("SanPham_Partial", Model)
+    @*@using (Ajax.BeginForm("SanPham","NguoiDung",new AjaxOptions
+                        {
+                            HttpMethod = "post",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "zoneUpdateAjax",
 
-@*<div class="row" id="zoneUpdateAjax">
 
-        @foreach (var item in Model)
+
+                        }))
         {
+            <input type="text" class="form-control" name="id" placeholder="Thông tin">
+            <button type="submit" class="btn btn-default">Tìm</button>
+        }*@
 
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <div>
+    @Html.Partial("SanPham_Partial", Model)
 
-                        <p class="text-center" style="font-size: large;">
-                            @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
-                        </p>
+    @*<div class="row" id="zoneUpdateAjax">
 
-                    </div>
+            @foreach (var item in Model)
+            {
 
-                    <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; width: 320px; height: 240px;">
-                    <div class="caption">
-                        <p style="width: 100%;">
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <div>
 
-                            @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })
-                        </p>
+                            <p class="text-center" style="font-size: large;">
+                                @Html.ActionLink(item.TEN, "Detail_SanPham", "NguoiDung", new { Id = item.ID }, null)
+                            </p>
+
+                        </div>
+
+                        <img class="img-thumbnail" data-original="#" width="320" height="240" alt="Không có hình" src="~/IMAGES/@Html.DisplayFor(itemModel => item.IMG_URL)" style="display: block; width: 320px; height: 240px;">
+                        <div class="caption">
+                            <p style="width: 100%;">
+
+                                @Html.ActionLink("Xem", "Detail_SanPham", "NguoiDung", new { Id = item.ID }, new { @class = "btn btn-primary btn-lg btn-block" })
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
+            }
 
 
-    </div>*@
+        </div>*@
 
-@*<div class="pagedList">
-        @Html.PagedListPager(Model, page => @Url.Action("SanPham", "NguoiDung", new { page }), new PagedListRenderOptions() { LinkToFirstPageFormat = "Trang đầu", LinkToLastPageFormat = "Trang cuối", LinkToNextPageFormat = "Sau", LinkToPreviousPageFormat = "Trước" })
-    </div>*@
+    @*<div class="pagedList">
+            @Html.PagedListPager(Model, page => @Url.Action("SanPham", "NguoiDung", new { page }), new PagedListRenderOptions() { LinkToFirstPageFormat = "Trang đầu", LinkToLastPageFormat = "Trang cuối", LinkToNextPageFormat = "Sau", LinkToPreviousPageFormat = "Trước" })
+        </div>*@
+
+</div>

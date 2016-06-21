@@ -91,3 +91,6 @@ C:\Users\GV\Source\Repos\Minh-Son\MSONTests\obj\Debug\MSONTests.csprojResolveAss
 C:\Users\GV\Source\Repos\Minh-Son\MSONTests\obj\Debug\MSONTests.dll
 C:\Users\GV\Source\Repos\Minh-Son\MSONTests\obj\Debug\MSONTests.pdb
 C:\Users\GV\Source\Repos\Minh-Son\MSONTests\bin\Debug\ApplicationInsights.config
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSONTests\bin\Debug\ApplicationInsights.config
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSONTests\bin\Debug\log4net.dll
+C:\Users\tranbaohuu\Documents\Visual Studio 2015\Projects\Minh-Son\MSONTests\bin\Debug\log4net.xml
